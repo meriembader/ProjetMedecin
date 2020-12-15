@@ -8,29 +8,29 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Form Validation | Bootstrap Based Admin Template - Material Design</title>
     <!-- Favicon-->
-    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
-    <link href="../../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="../../plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
 
     <!-- Sweet Alert Css -->
-    <link href="../../plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <link href="../plugins/sweetalert/sweetalert.css" rel="stylesheet" />
 
     <!-- Custom Css -->
-    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../../css/themes/all-themes.css" rel="stylesheet" />
+    <link href="../css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
 <body class="theme-red">
@@ -71,7 +71,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="../../index.html">ADMINBSB - MATERIAL DESIGN</a>
+                <a class="navbar-brand" href="../index.html">ADMINBSB - MATERIAL DESIGN</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -277,7 +277,7 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                    <img src="../images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
@@ -302,19 +302,19 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li>
-                        <a href="../../index.html">
+                        <a href="../index.html">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../../pages/typography.html">
+                        <a href="../pages/typography.html">
                             <i class="material-icons">text_fields</i>
                             <span>Typography</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../../pages/helper-classes.html">
+                        <a href="../pages/helper-classes.html">
                             <i class="material-icons">layers</i>
                             <span>Helper Classes</span>
                         </a>
@@ -331,13 +331,13 @@
                                 </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="../../pages/widgets/cards/basic.html">Basic</a>
+                                        <a href="../pages/widgets/cards/basic.html">Basic</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/cards/colored.html">Colored</a>
+                                        <a href="../pages/widgets/cards/colored.html">Colored</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/cards/no-header.html">No Header</a>
+                                        <a href="../pages/widgets/cards/no-header.html">No Header</a>
                                     </li>
                                 </ul>
                             </li>
@@ -347,19 +347,19 @@
                                 </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="../../pages/widgets/infobox/infobox-1.html">Infobox-1</a>
+                                        <a href="../pages/widgets/infobox/infobox-1.html">Infobox-1</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/infobox/infobox-2.html">Infobox-2</a>
+                                        <a href="../pages/widgets/infobox/infobox-2.html">Infobox-2</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/infobox/infobox-3.html">Infobox-3</a>
+                                        <a href="../pages/widgets/infobox/infobox-3.html">Infobox-3</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/infobox/infobox-4.html">Infobox-4</a>
+                                        <a href="../pages/widgets/infobox/infobox-4.html">Infobox-4</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/infobox/infobox-5.html">Infobox-5</a>
+                                        <a href="../pages/widgets/infobox/infobox-5.html">Infobox-5</a>
                                     </li>
                                 </ul>
                             </li>
@@ -372,74 +372,74 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/ui/alerts.html">Alerts</a>
+                                <a href="../pages/ui/alerts.html">Alerts</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/animations.html">Animations</a>
+                                <a href="../pages/ui/animations.html">Animations</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/badges.html">Badges</a>
+                                <a href="../pages/ui/badges.html">Badges</a>
                             </li>
 
                             <li>
-                                <a href="../../pages/ui/breadcrumbs.html">Breadcrumbs</a>
+                                <a href="../pages/ui/breadcrumbs.html">Breadcrumbs</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/buttons.html">Buttons</a>
+                                <a href="../pages/ui/buttons.html">Buttons</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/collapse.html">Collapse</a>
+                                <a href="../pages/ui/collapse.html">Collapse</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/colors.html">Colors</a>
+                                <a href="../pages/ui/colors.html">Colors</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/dialogs.html">Dialogs</a>
+                                <a href="../pages/ui/dialogs.html">Dialogs</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/icons.html">Icons</a>
+                                <a href="../pages/ui/icons.html">Icons</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/labels.html">Labels</a>
+                                <a href="../pages/ui/labels.html">Labels</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/list-group.html">List Group</a>
+                                <a href="../pages/ui/list-group.html">List Group</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/media-object.html">Media Object</a>
+                                <a href="../pages/ui/media-object.html">Media Object</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/modals.html">Modals</a>
+                                <a href="../pages/ui/modals.html">Modals</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/notifications.html">Notifications</a>
+                                <a href="../pages/ui/notifications.html">Notifications</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/pagination.html">Pagination</a>
+                                <a href="../pages/ui/pagination.html">Pagination</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/preloaders.html">Preloaders</a>
+                                <a href="../pages/ui/preloaders.html">Preloaders</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/progressbars.html">Progress Bars</a>
+                                <a href="../pages/ui/progressbars.html">Progress Bars</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/range-sliders.html">Range Sliders</a>
+                                <a href="../pages/ui/range-sliders.html">Range Sliders</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/sortable-nestable.html">Sortable & Nestable</a>
+                                <a href="../pages/ui/sortable-nestable.html">Sortable & Nestable</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/tabs.html">Tabs</a>
+                                <a href="../pages/ui/tabs.html">Tabs</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/thumbnails.html">Thumbnails</a>
+                                <a href="../pages/ui/thumbnails.html">Thumbnails</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/tooltips-popovers.html">Tooltips & Popovers</a>
+                                <a href="../pages/ui/tooltips-popovers.html">Tooltips & Popovers</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/waves.html">Waves</a>
+                                <a href="../pages/ui/waves.html">Waves</a>
                             </li>
                         </ul>
                     </li>
@@ -450,22 +450,22 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/forms/basic-form-elements.html">Basic Form Elements</a>
+                                <a href="../pages/forms/basic-form-elements.html">Basic Form Elements</a>
                             </li>
                             <li>
-                                <a href="../../pages/forms/advanced-form-elements.html">Advanced Form Elements</a>
+                                <a href="../pages/forms/advanced-form-elements.html">Advanced Form Elements</a>
                             </li>
                             <li>
-                                <a href="../../pages/forms/form-examples.html">Form Examples</a>
+                                <a href="../pages/forms/form-examples.html">Form Examples</a>
                             </li>
                             <li class="active">
-                                <a href="../../pages/forms/form-validation.html">Form Validation</a>
+                                <a href="../pages/forms/form-validation.html">Form Validation</a>
                             </li>
                             <li>
-                                <a href="../../pages/forms/form-wizard.html">Form Wizard</a>
+                                <a href="../pages/forms/form-wizard.html">Form Wizard</a>
                             </li>
                             <li>
-                                <a href="../../pages/forms/editors.html">Editors</a>
+                                <a href="../pages/forms/editors.html">Editors</a>
                             </li>
                         </ul>
                     </li>
@@ -476,13 +476,13 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/tables/normal-tables.html">Normal Tables</a>
+                                <a href="../pages/tables/normal-tables.html">Normal Tables</a>
                             </li>
                             <li>
-                                <a href="../../pages/tables/jquery-datatable.html">Jquery Datatables</a>
+                                <a href="../pages/tables/jquery-datatable.html">Jquery Datatables</a>
                             </li>
                             <li>
-                                <a href="../../pages/tables/editable-table.html">Editable Tables</a>
+                                <a href="../pages/tables/editable-table.html">Editable Tables</a>
                             </li>
                         </ul>
                     </li>
@@ -493,10 +493,10 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/medias/image-gallery.html">Image Gallery</a>
+                                <a href="../pages/medias/image-gallery.html">Image Gallery</a>
                             </li>
                             <li>
-                                <a href="../../pages/medias/carousel.html">Carousel</a>
+                                <a href="../pages/medias/carousel.html">Carousel</a>
                             </li>
                         </ul>
                     </li>
@@ -507,19 +507,19 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/charts/morris.html">Morris</a>
+                                <a href="../pages/charts/morris.html">Morris</a>
                             </li>
                             <li>
-                                <a href="../../pages/charts/flot.html">Flot</a>
+                                <a href="../pages/charts/flot.html">Flot</a>
                             </li>
                             <li>
-                                <a href="../../pages/charts/chartjs.html">ChartJS</a>
+                                <a href="../pages/charts/chartjs.html">ChartJS</a>
                             </li>
                             <li>
-                                <a href="../../pages/charts/sparkline.html">Sparkline</a>
+                                <a href="../pages/charts/sparkline.html">Sparkline</a>
                             </li>
                             <li>
-                                <a href="../../pages/charts/jquery-knob.html">Jquery Knob</a>
+                                <a href="../pages/charts/jquery-knob.html">Jquery Knob</a>
                             </li>
                         </ul>
                     </li>
@@ -530,22 +530,22 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/examples/sign-in.html">Sign In</a>
+                                <a href="../pages/examples/sign-in.html">Sign In</a>
                             </li>
                             <li>
-                                <a href="../../pages/examples/sign-up.html">Sign Up</a>
+                                <a href="../pages/examples/sign-up.html">Sign Up</a>
                             </li>
                             <li>
-                                <a href="../../pages/examples/forgot-password.html">Forgot Password</a>
+                                <a href="../pages/examples/forgot-password.html">Forgot Password</a>
                             </li>
                             <li>
-                                <a href="../../pages/examples/blank.html">Blank Page</a>
+                                <a href="../pages/examples/blank.html">Blank Page</a>
                             </li>
                             <li>
-                                <a href="../../pages/examples/404.html">404 - Not Found</a>
+                                <a href="../pages/examples/404.html">404 - Not Found</a>
                             </li>
                             <li>
-                                <a href="../../pages/examples/500.html">500 - Server Error</a>
+                                <a href="../pages/examples/500.html">500 - Server Error</a>
                             </li>
                         </ul>
                     </li>
@@ -556,13 +556,13 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/maps/google.html">Google Map</a>
+                                <a href="../pages/maps/google.html">Google Map</a>
                             </li>
                             <li>
-                                <a href="../../pages/maps/yandex.html">YandexMap</a>
+                                <a href="../pages/maps/yandex.html">YandexMap</a>
                             </li>
                             <li>
-                                <a href="../../pages/maps/jvectormap.html">jVectorMap</a>
+                                <a href="../pages/maps/jvectormap.html">jVectorMap</a>
                             </li>
                         </ul>
                     </li>
@@ -801,7 +801,7 @@
                     <small>Taken from <a href="https://jqueryvalidation.org/" target="_blank">jqueryvalidation.org</a></small>
                 </h2>
             </div>
-           
+              
             <!-- #END# Basic Validation -->
             <!-- Advanced Validation -->
             <div class="row clearfix">
@@ -819,7 +819,7 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form id="ajoutMedecon.php" method="POST">
+                            <form action="ajoutMedecinAction.php" method="POST">
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" id="nom" name="nom" maxlength="10" minlength="3" required>
@@ -869,35 +869,35 @@
     </section>
 
     <!-- Jquery Core Js -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->
-    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- Slimscroll Plugin Js -->
-    <script src="../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Jquery Validation Plugin Css -->
-    <script src="../../plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="../plugins/jquery-validation/jquery.validate.js"></script>
 
     <!-- JQuery Steps Plugin Js -->
-    <script src="../../plugins/jquery-steps/jquery.steps.js"></script>
+    <script src="../plugins/jquery-steps/jquery.steps.js"></script>
 
     <!-- Sweet Alert Plugin Js -->
-    <script src="../../plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../plugins/sweetalert/sweetalert.min.js"></script>
 
     <!-- Waves Effect Plugin Js -->
-    <script src="../../plugins/node-waves/waves.js"></script>
+    <script src="../plugins/node-waves/waves.js"></script>
 
     <!-- Custom Js -->
-    <script src="../../js/admin.js"></script>
-    <script src="../../js/pages/forms/form-validation.js"></script>
+    <script src="../js/admin.js"></script>
+    <script src="../js/pages/forms/form-validation.js"></script>
 
     <!-- Demo Js -->
-    <script src="../../js/demo.js"></script>
+    <script src="../js/demo.js"></script>
 </body>
 
 </html>

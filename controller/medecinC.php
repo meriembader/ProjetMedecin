@@ -17,11 +17,6 @@
     }   
   }
 
-
-
-	/**
-	* 
-	*/
 	class medecinC
 	{
 		
@@ -44,30 +39,7 @@
 			}			
 
 		}
-
-		/*function recuperer($idM_sous_categorie){
-			$db = config::getConnexion();
-			$sql = "SELECT idM FROM medecin WHERE idM_sous_categorie = $idM_sous_categorie";
-			$liste=$db->query($sql);
-			return $liste;
-		}
-		
-		function affichermedecinavecimg(){
-			$db = config::getConnexion();
-			$sql="SElECT medecin.nom,medecin.idM,medecin.age from medecin";
-			/*$sql="SElECT medecin.nom,medecin.idM,image.chemin from medecin INNER JOIN image ON medecin.idM=image.idM_medecin ";*/
-			/*$liste=$db->query($sql);
-			return $liste;
-		}
-
-		function recuperermedecin(){
-			$db = config::getConnexion();
-			$sql="SElECT idM,nom,age FROM medecin";
-			$liste=$db->query($sql);
-			return $liste;
-		}
-
-		function affichermedecin(){
+		function afficherMedecin(){
 			$db = config::getConnexion();
 			$sql="SELECT * FROM medecin ";
 			$liste=$db->query($sql);
@@ -75,6 +47,33 @@
 			
 		}
 
+		
+		function supprimermedecin($idM){
+			$db = config::getConnexion();
+			$sql="DELETE FROM medecin where idM= :idM";
+			$req=$db->prepare($sql);
+			$req->bindValue(':idM',$idM);
+	        $req->execute();
+	        
+		}
+		/*function recuperer($idM_sous_categorie){
+			$db = config::getConnexion();
+			$sql = "SELECT idM FROM medecin WHERE idM_sous_categorie = $idM_sous_categorie";
+			$liste=$db->query($sql);
+			return $liste;
+		}
+		
+	
+
+		function recuperermedecin(){
+			$db = config::getConnexion();
+			$sql="SElECT idM,nom,age FROM medecin";
+			$liste=$db->query($sql);
+			return $liste;
+		}*/
+
+		
+/*
 		function supprimermedecin($idM){
 			$db = config::getConnexion();
 			$sql="DELETE FROM medecin where idM= :idM";
