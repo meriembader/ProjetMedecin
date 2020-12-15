@@ -1,39 +1,52 @@
-﻿Skip to content
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@meriembader 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+ <?php
+   include_once "../../../Controller/medecinC.php";
+   include_once "../../../Model/medecin.php";
 
 
-meriembader
-/
-ProjetMedecin
-1
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-ProjetMedecin/back/back1/pages/forms/form-validation.html
-@meriembader
-meriembader fisrt commit
-Latest commit 978d754 1 hour ago
- History
- 1 contributor
-1023 lines (1000 sloc)  52.7 KB
-  
-﻿<!DOCTYPE html>
+function pdo_connect_mysql() {
+    $DATABASE_HOST = 'localhost';
+    $DATABASE_USER = 'root';
+    $DATABASE_PASS = '';
+    $DATABASE_NAME = 'projetmedecin';
+    try {
+        return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
+    } catch (PDOException $exception) {
+        // If there is an error with the connection, stop the script and display the error.
+        exit('Failed to connect to database!');
+    }
+}
+$msg = '';
+$pdo = pdo_connect_mysql();
+// Check if the medecin id exists, for example update.php?id=1 will get the medecin with the id of 1
+if (isset($_GET['idM'])) {
+    if (!empty($_POST)) {
+        // This part is similar to the create.php, but instead we update a record and not insert
+      //  $idM = isset($_POST['idM']) ? $_POST['idM'] : NULL;
+        $nom = isset($_POST['nom']) ? $_POST['nom'] : '';
+        $prenom = isset($_POST['prenom']) ? $_POST['prenom'] : '';
+        $age = isset($_POST['age']) ? $_POST['age'] : '';
+        $departement = isset($_POST['departement']) ? $_POST['departement'] : '';
+        $telephone = isset($_POST['telephone']) ? $_POST['telephone'] : '';
+        // Update the record
+        $stmt = $pdo->prepare('UPDATE medecin SET  nom = ?, prenom = ?, age = ?, departement = ?, telephone = ? WHERE idM = ?');
+        $stmt->execute([ $nom, $prenom, $age, $departement, $telephone, $_GET['idM']]);
+        $msg = 'Updated Successfully!';
+    }
+    // Get the medecin from the medecins table
+ $stmt = $pdo->prepare('SELECT * FROM medecin WHERE idM = ?');
+   $stmt->execute([$_GET['idM']]);
+  $medecin = $stmt->fetch(PDO::FETCH_ASSOC);
+    if (!$medecin) {
+       exit('medecin doesn\'t exist with that idM!');
+    }
+} 
+else {
+    exit('No idM specified!');
+}
+
+?>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -41,29 +54,29 @@ Latest commit 978d754 1 hour ago
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Form Validation | Bootstrap Based Admin Template - Material Design</title>
     <!-- Favicon-->
-    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
-    <link href="../../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="../../plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
 
     <!-- Sweet Alert Css -->
-    <link href="../../plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <link href="../plugins/sweetalert/sweetalert.css" rel="stylesheet" />
 
     <!-- Custom Css -->
-    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../../css/themes/all-themes.css" rel="stylesheet" />
+    <link href="../css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
 <body class="theme-red">
@@ -104,7 +117,7 @@ Latest commit 978d754 1 hour ago
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="../../index.html">ADMINBSB - MATERIAL DESIGN</a>
+                <a class="navbar-brand" href="../index.html">ADMINBSB - MATERIAL DESIGN</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -310,7 +323,7 @@ Latest commit 978d754 1 hour ago
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                    <img src="../images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
@@ -335,19 +348,19 @@ Latest commit 978d754 1 hour ago
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li>
-                        <a href="../../index.html">
+                        <a href="../index.html">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../../pages/typography.html">
+                        <a href="../pages/typography.html">
                             <i class="material-icons">text_fields</i>
                             <span>Typography</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../../pages/helper-classes.html">
+                        <a href="../pages/helper-classes.html">
                             <i class="material-icons">layers</i>
                             <span>Helper Classes</span>
                         </a>
@@ -364,13 +377,13 @@ Latest commit 978d754 1 hour ago
                                 </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="../../pages/widgets/cards/basic.html">Basic</a>
+                                        <a href="../pages/widgets/cards/basic.html">Basic</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/cards/colored.html">Colored</a>
+                                        <a href="../pages/widgets/cards/colored.html">Colored</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/cards/no-header.html">No Header</a>
+                                        <a href="../pages/widgets/cards/no-header.html">No Header</a>
                                     </li>
                                 </ul>
                             </li>
@@ -380,19 +393,19 @@ Latest commit 978d754 1 hour ago
                                 </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="../../pages/widgets/infobox/infobox-1.html">Infobox-1</a>
+                                        <a href="../pages/widgets/infobox/infobox-1.html">Infobox-1</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/infobox/infobox-2.html">Infobox-2</a>
+                                        <a href="../pages/widgets/infobox/infobox-2.html">Infobox-2</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/infobox/infobox-3.html">Infobox-3</a>
+                                        <a href="../pages/widgets/infobox/infobox-3.html">Infobox-3</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/infobox/infobox-4.html">Infobox-4</a>
+                                        <a href="../pages/widgets/infobox/infobox-4.html">Infobox-4</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/infobox/infobox-5.html">Infobox-5</a>
+                                        <a href="../pages/widgets/infobox/infobox-5.html">Infobox-5</a>
                                     </li>
                                 </ul>
                             </li>
@@ -405,74 +418,74 @@ Latest commit 978d754 1 hour ago
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/ui/alerts.html">Alerts</a>
+                                <a href="../pages/ui/alerts.html">Alerts</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/animations.html">Animations</a>
+                                <a href="../pages/ui/animations.html">Animations</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/badges.html">Badges</a>
+                                <a href="../pages/ui/badges.html">Badges</a>
                             </li>
 
                             <li>
-                                <a href="../../pages/ui/breadcrumbs.html">Breadcrumbs</a>
+                                <a href="../pages/ui/breadcrumbs.html">Breadcrumbs</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/buttons.html">Buttons</a>
+                                <a href="../pages/ui/buttons.html">Buttons</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/collapse.html">Collapse</a>
+                                <a href="../pages/ui/collapse.html">Collapse</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/colors.html">Colors</a>
+                                <a href="../pages/ui/colors.html">Colors</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/dialogs.html">Dialogs</a>
+                                <a href="../pages/ui/dialogs.html">Dialogs</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/icons.html">Icons</a>
+                                <a href="../pages/ui/icons.html">Icons</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/labels.html">Labels</a>
+                                <a href="../pages/ui/labels.html">Labels</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/list-group.html">List Group</a>
+                                <a href="../pages/ui/list-group.html">List Group</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/media-object.html">Media Object</a>
+                                <a href="../pages/ui/media-object.html">Media Object</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/modals.html">Modals</a>
+                                <a href="../pages/ui/modals.html">Modals</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/notifications.html">Notifications</a>
+                                <a href="../pages/ui/notifications.html">Notifications</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/pagination.html">Pagination</a>
+                                <a href="../pages/ui/pagination.html">Pagination</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/preloaders.html">Preloaders</a>
+                                <a href="../pages/ui/preloaders.html">Preloaders</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/progressbars.html">Progress Bars</a>
+                                <a href="../pages/ui/progressbars.html">Progress Bars</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/range-sliders.html">Range Sliders</a>
+                                <a href="../pages/ui/range-sliders.html">Range Sliders</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/sortable-nestable.html">Sortable & Nestable</a>
+                                <a href="../pages/ui/sortable-nestable.html">Sortable & Nestable</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/tabs.html">Tabs</a>
+                                <a href="../pages/ui/tabs.html">Tabs</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/thumbnails.html">Thumbnails</a>
+                                <a href="../pages/ui/thumbnails.html">Thumbnails</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/tooltips-popovers.html">Tooltips & Popovers</a>
+                                <a href="../pages/ui/tooltips-popovers.html">Tooltips & Popovers</a>
                             </li>
                             <li>
-                                <a href="../../pages/ui/waves.html">Waves</a>
+                                <a href="../pages/ui/waves.html">Waves</a>
                             </li>
                         </ul>
                     </li>
@@ -483,22 +496,22 @@ Latest commit 978d754 1 hour ago
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/forms/basic-form-elements.html">Basic Form Elements</a>
+                                <a href="../pages/forms/basic-form-elements.html">Basic Form Elements</a>
                             </li>
                             <li>
-                                <a href="../../pages/forms/advanced-form-elements.html">Advanced Form Elements</a>
+                                <a href="../pages/forms/advanced-form-elements.html">Advanced Form Elements</a>
                             </li>
                             <li>
-                                <a href="../../pages/forms/form-examples.html">Form Examples</a>
+                                <a href="../pages/forms/form-examples.html">Form Examples</a>
                             </li>
                             <li class="active">
-                                <a href="../../pages/forms/form-validation.html">Form Validation</a>
+                                <a href="../pages/forms/form-validation.html">Form Validation</a>
                             </li>
                             <li>
-                                <a href="../../pages/forms/form-wizard.html">Form Wizard</a>
+                                <a href="../pages/forms/form-wizard.html">Form Wizard</a>
                             </li>
                             <li>
-                                <a href="../../pages/forms/editors.html">Editors</a>
+                                <a href="../pages/forms/editors.html">Editors</a>
                             </li>
                         </ul>
                     </li>
@@ -509,13 +522,13 @@ Latest commit 978d754 1 hour ago
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/tables/normal-tables.html">Normal Tables</a>
+                                <a href="../pages/tables/normal-tables.html">Normal Tables</a>
                             </li>
                             <li>
-                                <a href="../../pages/tables/jquery-datatable.html">Jquery Datatables</a>
+                                <a href="../pages/tables/jquery-datatable.html">Jquery Datatables</a>
                             </li>
                             <li>
-                                <a href="../../pages/tables/editable-table.html">Editable Tables</a>
+                                <a href="../pages/tables/editable-table.html">Editable Tables</a>
                             </li>
                         </ul>
                     </li>
@@ -526,10 +539,10 @@ Latest commit 978d754 1 hour ago
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/medias/image-gallery.html">Image Gallery</a>
+                                <a href="../pages/medias/image-gallery.html">Image Gallery</a>
                             </li>
                             <li>
-                                <a href="../../pages/medias/carousel.html">Carousel</a>
+                                <a href="../pages/medias/carousel.html">Carousel</a>
                             </li>
                         </ul>
                     </li>
@@ -540,19 +553,19 @@ Latest commit 978d754 1 hour ago
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/charts/morris.html">Morris</a>
+                                <a href="../pages/charts/morris.html">Morris</a>
                             </li>
                             <li>
-                                <a href="../../pages/charts/flot.html">Flot</a>
+                                <a href="../pages/charts/flot.html">Flot</a>
                             </li>
                             <li>
-                                <a href="../../pages/charts/chartjs.html">ChartJS</a>
+                                <a href="../pages/charts/chartjs.html">ChartJS</a>
                             </li>
                             <li>
-                                <a href="../../pages/charts/sparkline.html">Sparkline</a>
+                                <a href="../pages/charts/sparkline.html">Sparkline</a>
                             </li>
                             <li>
-                                <a href="../../pages/charts/jquery-knob.html">Jquery Knob</a>
+                                <a href="../pages/charts/jquery-knob.html">Jquery Knob</a>
                             </li>
                         </ul>
                     </li>
@@ -563,22 +576,22 @@ Latest commit 978d754 1 hour ago
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/examples/sign-in.html">Sign In</a>
+                                <a href="../pages/examples/sign-in.html">Sign In</a>
                             </li>
                             <li>
-                                <a href="../../pages/examples/sign-up.html">Sign Up</a>
+                                <a href="../pages/examples/sign-up.html">Sign Up</a>
                             </li>
                             <li>
-                                <a href="../../pages/examples/forgot-password.html">Forgot Password</a>
+                                <a href="../pages/examples/forgot-password.html">Forgot Password</a>
                             </li>
                             <li>
-                                <a href="../../pages/examples/blank.html">Blank Page</a>
+                                <a href="../pages/examples/blank.html">Blank Page</a>
                             </li>
                             <li>
-                                <a href="../../pages/examples/404.html">404 - Not Found</a>
+                                <a href="../pages/examples/404.html">404 - Not Found</a>
                             </li>
                             <li>
-                                <a href="../../pages/examples/500.html">500 - Server Error</a>
+                                <a href="../pages/examples/500.html">500 - Server Error</a>
                             </li>
                         </ul>
                     </li>
@@ -589,13 +602,13 @@ Latest commit 978d754 1 hour ago
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../../pages/maps/google.html">Google Map</a>
+                                <a href="../pages/maps/google.html">Google Map</a>
                             </li>
                             <li>
-                                <a href="../../pages/maps/yandex.html">YandexMap</a>
+                                <a href="../pages/maps/yandex.html">YandexMap</a>
                             </li>
                             <li>
-                                <a href="../../pages/maps/jvectormap.html">jVectorMap</a>
+                                <a href="../pages/maps/jvectormap.html">jVectorMap</a>
                             </li>
                         </ul>
                     </li>
@@ -834,237 +847,95 @@ Latest commit 978d754 1 hour ago
                     <small>Taken from <a href="https://jqueryvalidation.org/" target="_blank">jqueryvalidation.org</a></small>
                 </h2>
             </div>
-            <!-- Basic Validation -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>BASIC VALIDATION</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <form id="form_validation" method="POST">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required>
-                                        <label class="form-label">Name</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="surname" required>
-                                        <label class="form-label">Surname</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="email" class="form-control" name="email" required>
-                                        <label class="form-label">Email</label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="radio" name="gender" id="male" class="with-gap">
-                                    <label for="male">Male</label>
-
-                                    <input type="radio" name="gender" id="female" class="with-gap">
-                                    <label for="female" class="m-l-20">Female</label>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <textarea name="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
-                                        <label class="form-label">Description</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="password" class="form-control" name="password" required>
-                                        <label class="form-label">Password</label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="checkbox" name="checkbox">
-                                    <label for="checkbox">I have read and accept the terms</label>
-                                </div>
-                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
             <!-- #END# Basic Validation -->
             <!-- Advanced Validation -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>ADVANCED VALIDATION</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <h2>
+                                modifier Medecin
+                            </h2>
+                         
                         </div>
                         <div class="body">
-                            <form id="form_advanced_validation" method="POST">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="minmaxlength" maxlength="10" minlength="3" required>
-                                        <label class="form-label">Min/Max Length</label>
-                                    </div>
-                                    <div class="help-info">Min. 3, Max. 10 characters</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="minmaxvalue" min="10" max="200" required>
-                                        <label class="form-label">Min/Max Value</label>
-                                    </div>
-                                    <div class="help-info">Min. Value: 10, Max. Value: 200</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="url" class="form-control" name="url" required>
-                                        <label class="form-label">Url</label>
-                                    </div>
-                                    <div class="help-info">Starts with http://, https://, ftp:// etc</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="date" required>
-                                        <label class="form-label">Date</label>
-                                    </div>
-                                    <div class="help-info">YYYY-MM-DD format</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" name="number" required>
-                                        <label class="form-label">Number</label>
-                                    </div>
-                                    <div class="help-info">Numbers only</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="creditcard" pattern="[0-9]{13,16}" required>
-                                        <label class="form-label">Credit Card</label>
-                                    </div>
-                                    <div class="help-info">Ex: 1234-5678-9012-3456</div>
-                                </div>
-                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                            <form action="modifierMedecinAction.php?idM=<?=$medecin['idM']?>" method="POST">
+                            <table class='table table-hover table-responsive table-bordered'>
+                            <tr>
+            <td>Name</td>
+            <td><input type='text' name='nom' value ="<?php echo $medecin['nom'];?>" class='form-control' /></td>
+        </tr>
+        <tr>
+            <td>prenom</td>
+            <td><input type='text' name='prenom'  value ="<?php echo $medecin['prenom'];?>" class='form-control' /></td>
+        </tr>
+        
+        <tr>
+            <td>age</td>
+            <td><input type='text' name='age'  value ="<?php echo $medecin['age'];?>" class='form-control' /></td>
+        </tr>
+        <tr>
+            <td>departement</td>
+            <td><input type='text' name='departement'value ="<?php echo $medecin['departement'];?>" class='form-control' /></td>
+        </tr>
+        <tr>
+            <td>telephone</td>
+            <td><input type='text' name='telephone'value ="<?php echo $medecin['telephone'];?>" class='form-control' /></td>
+        </tr>
+        
+     
+                                        <button class="btn btn-success waves-effect" type="submit">Valider</button>
+                                <button class="btn btn-danger waves-effect" type="reset">Annuler</button>
+                                </table>
                             </form>
+                            <?php if ($msg): ?>
+    <p><?=$msg?></p>
+    <?php endif; ?>
+
+      <?php
+  
+  ?>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- #END# Advanced Validation -->
-            <!-- Validation Stats -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                VALIDATION STATS
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <form id="form_validation_stats">
-                                <div class="form-group form-float">
-                                    <div class="form-line focused warning">
-                                        <input type="text" class="form-control" name="warning" value="Warning" required>
-                                        <label class="form-label">Form Validation - Warning</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line focused error">
-                                        <input type="text" class="form-control" name="error" value="Error" required>
-                                        <label class="form-label">Form Validation - Error</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line focused success">
-                                        <input type="email" class="form-control" name="success" value="Success" required>
-                                        <label class="form-label">Form Validation - Success</label>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Validation Stats -->
+           
         </div>
     </section>
 
     <!-- Jquery Core Js -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->
-    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- Slimscroll Plugin Js -->
-    <script src="../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Jquery Validation Plugin Css -->
-    <script src="../../plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="../plugins/jquery-validation/jquery.validate.js"></script>
 
     <!-- JQuery Steps Plugin Js -->
-    <script src="../../plugins/jquery-steps/jquery.steps.js"></script>
+    <script src="../plugins/jquery-steps/jquery.steps.js"></script>
 
     <!-- Sweet Alert Plugin Js -->
-    <script src="../../plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../plugins/sweetalert/sweetalert.min.js"></script>
 
     <!-- Waves Effect Plugin Js -->
-    <script src="../../plugins/node-waves/waves.js"></script>
+    <script src="../plugins/node-waves/waves.js"></script>
 
     <!-- Custom Js -->
-    <script src="../../js/admin.js"></script>
-    <script src="../../js/pages/forms/form-validation.js"></script>
+    <script src="../js/admin.js"></script>
+    <script src="../js/pages/forms/form-validation.js"></script>
 
     <!-- Demo Js -->
-    <script src="../../js/demo.js"></script>
+    <script src="../js/demo.js"></script>
 </body>
 
 </html>
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+

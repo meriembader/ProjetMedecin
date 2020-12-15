@@ -1,7 +1,7 @@
 <?php
 
-    include_once "../../../../Controller/medecinC.php";
-    include_once "../../../../Model/medecin.php";
+    include_once "../../../Controller/medecinC.php";
+    include_once "../../../Model/medecin.php";
 
     function pdo_connect_mysql() {
         $DATABASE_HOST = 'localhost';
