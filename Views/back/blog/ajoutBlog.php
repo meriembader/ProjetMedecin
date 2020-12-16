@@ -330,6 +330,40 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">perm_media</i>
+                            <span>Gestion Chambre </span>
+                        </a>
+                        <ul class="active">
+                            
+                            <li>
+                                <a href="../chambre/Ajouterchambre.php">Créer un chambre</a>
+                            </li>
+                            <li>
+                                <a href="../chambre/consulterchambres.php">list des chambres</a>
+                            </li>
+                            <li>
+                                <a href="../chambre/statistiquechambres.php">Statistique </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">perm_media</i>
+                            <span>Gestion Occupation </span>
+                        </a>
+                        <ul class="active">
+                            
+                            <li>
+                                <a href="../occupation/Ajouteroccupation.php">Créer une occupation</a>
+                            </li>
+                            <li>
+                                <a href="../occupation/consulteroccupation.php">list des occupations</a>
+                            </li>
+                        </ul>
+                    </li>
+                   
                    
                
                     
@@ -514,18 +548,18 @@
                                 <h3>Titre et description</h3>
                                 <fieldset>
                                     <div class="form-group form-float">
-                                        <div class="form-line">
+                                          <div class="form-line">
                                             <input type="text" class="form-control" name="titre" id="titre" required>
                                             <label class="form-label">Titre*</label>
                                         </div>
-                                    </div>
+                                      </div>
                                     <div class="form-group form-float">
                                         <div class="form-line">
                                             <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                                             <label class="form-label">Description*</label>
                                         </div>
                                     </div>
-                                   
+                                      
                                 </fieldset>
 
                                 <h3>medecin et Date</h3>

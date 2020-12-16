@@ -14,9 +14,8 @@ $Listoccupation=$occupationController->afficheroccupation();
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+    <title>Les medecins </title>
     <!-- Favicon-->
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
@@ -33,8 +32,8 @@ $Listoccupation=$occupationController->afficheroccupation();
     <!-- Animation Css -->
     <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
 
-    <!-- Morris Chart Css-->
-    <link href="../plugins/morrisjs/morris.css" rel="stylesheet" />
+    <!-- JQuery DataTable Css -->
+    <link href="../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Custom Css -->
     <link href="../css/style.css" rel="stylesheet">
@@ -43,9 +42,8 @@ $Listoccupation=$occupationController->afficheroccupation();
     <link href="../css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
-<body class="theme-orange
- ">
-    <!-- Page Loader -- >
+<body class="theme-pink">
+    <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
@@ -68,7 +66,7 @@ $Listoccupation=$occupationController->afficheroccupation();
     <!-- Search Bar -->
     <div class="search-bar">
         <div class="search-icon">
-            <i class="material-icons">recherche</i>
+            <i class="material-icons">search</i>
         </div>
         <input type="text" placeholder="START TYPING...">
         <div class="close-search">
@@ -77,25 +75,16 @@ $Listoccupation=$occupationController->afficheroccupation();
     </div>
     <!-- #END# Search Bar -->
     <!-- Top Bar -->
-
     <nav class="navbar">
-
         <div class="container-fluid">
             <div class="navbar-header">
-
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-                  <div class="logo2"><img src="logo2.png" height="50" width="50"alt="IMG"></div>
                 <a href="javascript:void(0);" class="bars"></a>
-
-                
+                <a class="navbar-brand" href="../index.html"><B>SEIN SAIN centre,</B> Parlez-en aux femmes que vous aimez!</a>
             </div>
-
-           
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    
-                    
-                    
+                    <
                     <!-- Notifications -->
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
@@ -176,13 +165,13 @@ $Listoccupation=$occupationController->afficheroccupation();
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="javascript:void(0);">voir tous les notifications</a>
+                                <a href="javascript:void(0);">View All Notifications</a>
                             </li>
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
                     
-                
+                    
                 </ul>
             </div>
         </div>
@@ -194,11 +183,10 @@ $Listoccupation=$occupationController->afficheroccupation();
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="images/user3.jpg" width="52" height="52" alt="User" />
+                    <img src="../images/user3.jpg" width="52" height="52" alt="User" />
                 </div>
-                       <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><B><font size="3pt"> Lamis Hm
-                    </font> </B></div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><B><font size ="3pt"> Lamis Hm </font></B></div>
                     <div class="email">lamishammemi65@gmail.com</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -218,92 +206,75 @@ $Listoccupation=$occupationController->afficheroccupation();
             <div class="menu">
                 <ul class="list">
                     <li class="header">NAVIGATION PRINCIPALE</li>
+                   
                     <li class="active">
-                        <a href="index.html">
-                            <i class="material-icons">home</i>
-                            <span>Accueil</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="pages/typography.html">
-                            <i class="material-icons">text_fields</i>
-                            <span>A propos</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
-                            <span>Nos équipes médicales</span>
+                            <span>Les équipes médicales</span>
                         </a>
-                        <ul class="ml-menu">
+                        <ul class="active">
                             <li>
-                                <a href="pages/tables/normal-tables.html">Les médecins</a>
+                                <a href="../medecin/listMedecin.php">list des médecins</a>
                             </li>
                             <li>
-                                <a href="pages/tables/jquery-datatable.html">Les infirmiers</a>
-
+                                <a href="../medecin/ajoutMedecin.php">Ajouter medecin</a>
                             </li>
-                           
-                           
+                              
+                            
                         </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">perm_media</i>
-                            <span>Nos chambres</span>
+                            <span>Gestion Blog </span>
                         </a>
-                        <ul class="ml-menu">
+                        <ul class="active">
                             
                             <li>
-                                <a href="Views/Ajouterchambre.php">Gestion Chambre</a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">content_copy</i>
-                            <span>Pour contacter</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/examples/sign-in.html">se connecter</a>
-                            </li>
-                           
-                            <li>
-                                <a href="pages/examples/forgot-password.html">mot de passe oublié</a>
+                                <a href="../blog/ajoutBlog.php">Créer un blog</a>
                             </li>
                             <li>
-                                <a href="pages/examples/404.html">404 - non trouvée</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/500.html">500 - erreur</a>
+                                <a href="../blog/listBlog.php">list des blog</a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">map</i>
-                            <span>Nos événements</span>
+                            <i class="material-icons">perm_media</i>
+                            <span>Gestion Chambre </span>
                         </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/maps/google.html">Google Map</a>
-                            </li>
-                            <li>
-                                <a href="pages/maps/yandex.html">YandexMap</a>
-                            </li>
+                        <ul class="active">
                             
+                            <li>
+                                <a href="../chambre/Ajouterchambre.php">Créer un chambre</a>
+                            </li>
+                            <li>
+                                <a href="../chambre/consulterchambres.php">list des chambres</a>
+                            </li>
+                            <li>
+                                <a href="../chambre/statistiquechambres.php">Statistique </a>
+                            </li>
                         </ul>
                     </li>
-                    
-                    <li>
-                        <a href="pages/changelogs.html">
-                            <i class="material-icons">update</i>
-                            <span>Changelogs</span>
+                    <li>  
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">perm_media</i>
+                            <span>Gestion Occupation </span>
                         </a>
+                        <ul class="active">
+                            
+                            <li>
+                                <a href="../occupation/Ajouteroccupation.php">Créer une occupation</a>
+                            </li>
+                            <li>
+                                <a href="../occupation/consulteroccupation.php">list des occupations</a>
+                            </li>
+                        </ul>
                     </li>
+                   
+               
                     
+                   
                 </ul>
             </div>
             <!-- #Menu -->
@@ -312,14 +283,23 @@ $Listoccupation=$occupationController->afficheroccupation();
                 <div class="copyright">
                     &copy; 2020 - 2021 <a href="javascript:void(0);">AdminLH-SEIN SAIN centre</a>.
                 </div>
+                
             </div>
             <!-- #Footer -->
-            
         </aside>
-        
+        <!-- #END# Left Sidebar -->
+       
     </section>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>
+                    JQUERY DATATABLES
+                    <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
+                </h2>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
             $("#myInput").on("keyup", function() {
@@ -330,31 +310,37 @@ $Listoccupation=$occupationController->afficheroccupation();
             });
         });
     </script>
-
-    <section class="content">
-        <div class="container-fluid">
-            <div class="block-header">
-                <center><h1>Gestion des réservations</h1> </center>
-                <br> <br>
-                <h2>Liste des réservations</h2><br>
-                <input id="myInput" type="text" name="rechercher" placeholder="rechercher ..."> <br>
-                <br>
-               <div class="table-responsive table--no-card m-b-30">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                            <tr>
-                                                <th>id_Réservation </th>
+            <!-- Exportable Table -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                              Liste des medecins
+                            </h2>
+                           
+                        </div>
+                       
+                       
+                        <div class="body">
+                            <div class="table-responsive">
+                       
+                            <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                                <label>Recherche:<input id="myInput"  type="text"name="rechercher" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1"></label></div>
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <thead>
+                                        <tr>
+                                        <th>id_Réservation </th>
                                                 <th>id_Patient </th>
                                                 <th>id_Chambre </th>
                                                 <th>Date de réservation </th>
-                                                
-                                          
-                                            </tr>
-                                        </thead>
-                                        <tbody id="myTable">
-                                        <?php
-                          
-                          foreach ($Listoccupation as $row) {?>
+                                                <th> action </th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody id="myTable">
+                                                 
+                                                 <?php        foreach ($Listoccupation as $row) {?>
                                                 <tr class="tr-shadow">
                                                     
                                                     <td>
@@ -386,24 +372,24 @@ $Listoccupation=$occupationController->afficheroccupation();
                         <a href="modifieroccupation.php?idoccupation=<?PHP echo $row['idoccupation']; ?>"> Modifier </a>
                     </td>
                                </form>
-                                                    </td>
-                                                    <tr class="spacer"></tr>
-                                                   
-                                                </tr>
-                                            
-                                     
-                                                <?php
-                          }
-                          ?>
-                                        </tbody>
+                                                             </td>
+                                                             <tr class="spacer"></tr>
+                                                            
+                                                         </tr>
+                                                     
+                                              
+                                                         <?php
+                                   }
+                                   ?>
+                                               
+                                                  </tbody>
                                     </table>
 
 
 
                                 </div>
+                        </div>
          
-                <!-- #END# Browser Usage -->
-            </div>
         </div>
     </section>
 
@@ -422,29 +408,20 @@ $Listoccupation=$occupationController->afficheroccupation();
     <!-- Waves Effect Plugin Js -->
     <script src="../plugins/node-waves/waves.js"></script>
 
-    <!-- Jquery CountTo Plugin Js -->
-    <script src="../plugins/jquery-countto/jquery.countTo.js"></script>
-
-    <!-- Morris Plugin Js -->
-    <script src="../plugins/raphael/raphael.min.js"></script>
-    <script src="../plugins/morrisjs/morris.js"></script>
-
-    <!-- ChartJs -->
-    <script src="../plugins/chartjs/Chart.bundle.js"></script>
-
-    <!-- Flot Charts Plugin Js -->
-    <script src="../plugins/flot-charts/jquery.flot.js"></script>
-    <script src="../plugins/flot-charts/jquery.flot.resize.js"></script>
-    <script src="../plugins/flot-charts/jquery.flot.pie.js"></script>
-    <script src="../plugins/flot-charts/jquery.flot.categories.js"></script>
-    <script src="../plugins/flot-charts/jquery.flot.time.js"></script>
-
-    <!-- Sparkline Chart Plugin Js -->
-    <script src="../plugins/jquery-sparkline/jquery.sparkline.js"></script>
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="../plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="../plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
     <!-- Custom Js -->
     <script src="../js/admin.js"></script>
-    <script src="../js/pages/index.js"></script>
+    <script src="../js/pages/tables/jquery-datatable.js"></script>
 
     <!-- Demo Js -->
     <script src="../js/demo.js"></script>

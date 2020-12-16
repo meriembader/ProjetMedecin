@@ -9,7 +9,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">  
 <head>
   <title>Pacific - Free Bootstrap 4 Template by Colorlib</title>
   <meta charset="utf-8">
@@ -22,7 +22,7 @@
 
   <link rel="stylesheet" href="css/animate.css">
   
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">  
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
   <link rel="stylesheet" href="css/magnific-popup.css">
 
@@ -48,7 +48,7 @@
          <li class="nav-item"><a href="" class="nav-link">Accueil</a></li>
         
           <li class="nav-item"><a href="medecin.php" class="nav-link"> équipes médicales</a></li>
-          <li class="nav-item "><a href="" class="nav-link">Nos chambres </a></li> 
+          <li class="nav-item "><a href="chambre.php" class="nav-link">Nos chambres </a></li> 
           <li class="nav-item active"><a href="blog.php" class="nav-link"> Blog</a></li>
           <li class="nav-item"><a href="file:///C:/Users/asus/Documents/projet%20web/front/sein%20sain%20front/formulaire%20inscription/colorlib-regform-8/index.html" class="nav-link">S'inscrire</a></li>
 
@@ -73,13 +73,25 @@
 
 <section class="ftco-section">
   <div class="container">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
   <div class="row clearfix">
+  <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                                <label>Recherche:<input id="myInput"  type="text"name="rechercher" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1"></label></div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
-                              Liste des medecins
+                              Liste des Blog
                             </h2>
                            
                         </div>
@@ -97,7 +109,7 @@
                                         </tr>
                                     
                                     
-                                    <tbody>
+                                        <tbody id="myTable">
                                                  
                                         <?php      foreach ($listeBlog as $row) {?>
                             <tr class="tr-shadow">
