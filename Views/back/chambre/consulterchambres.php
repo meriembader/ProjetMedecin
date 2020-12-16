@@ -255,7 +255,24 @@ $Listchambre=$chambreController->afficherchambre();
                             
                             <li>
                                 <a href="Views/Ajouterchambre.php">Gestion Chambre</a>
+                                <a href="statistiquechambres.php">Statistiques</a>
                             </li>
+                            
+                        </ul>
+                    </li>
+
+                     <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">perm_media</i>
+                            <span>Nos réservations</span>
+                        </a>
+                        <ul class="ml-menu">
+                            
+                            <li>
+                                <a href="Views/Ajouterchambre.php">Gestion Chambre</a>
+                                <a href="statistiquechambres.php">Statistiques</a>
+                            </li>
+                            
                         </ul>
                     </li>
                     
@@ -345,7 +362,7 @@ $Listchambre=$chambreController->afficherchambre();
                                             <th>id</th>
                                                 <th>Etage </th>
                                                 <th>Etat </th>
-                                                
+                                                <th>Date de création </th>
                                           
                                             </tr>
                                         </thead>
@@ -364,6 +381,10 @@ $Listchambre=$chambreController->afficherchambre();
                                                     
                                                     <td>
                                                     <?PHP echo $row['etat']; ?>
+                                                    </td>
+
+                                                    <td>
+                                                    <?PHP echo $row['date2']; ?>
                                                     </td>
                                                     
                                                    

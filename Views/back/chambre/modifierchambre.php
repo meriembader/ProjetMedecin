@@ -2,8 +2,8 @@ modifierchambre.php
 
 
 <?php
-  include_once "../../../controller/chambreController.php";
- include_once "../../../model/chambre.php";
+  include_once "../../../controller/occupationController.php";
+ include_once "../../../model/occupation.php";
 
 
   function pdo_connect_mysql() {
@@ -12,10 +12,10 @@ modifierchambre.php
     $DATABASE_PASS = '';
     $DATABASE_NAME = 'projetmedecin';
     try {
-    	return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
+        return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
     } catch (PDOException $exception) {
-    	// If there is an error with the connection, stop the script and display the error.
-    	exit('Failed to connect to database!');
+        // If there is an error with the connection, stop the script and display the error.
+        exit('Failed to connect to database!');
     }
 }
 $msg = '';
@@ -27,11 +27,12 @@ if (isset($_GET['idchambre'])) {
       //  $id = isset($_POST['id']) ? $_POST['id'] : NULL;
         $etage = isset($_POST['etage']) ? $_POST['etage'] : '';
         $etat = isset($_POST['etat']) ? $_POST['etat'] : '';
+        $date2 = isset($_POST['date2']) ? $_POST['date2'] : '';
         
      
         // Update the record
-        $stmt = $pdo->prepare('UPDATE chambre SET  etage = ?, etat = ?,  WHERE idchambre = ?');
-        $stmt->execute([ $etage, $etat, $_GET['idchambre']]);
+        $stmt = $pdo->prepare('UPDATE chambre SET  etage = ?, etat = ?, date2 = ?  WHERE idchambre = ?');
+        $stmt->execute([ $etage, $etat, $date2,  $_GET['idchambre']]);
         $msg = 'Updated Successfully!';
     }
     // Get the reclamation from the reclamations table
@@ -361,17 +362,24 @@ else {
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <center><h1>Gestion des chambres</h1> </center>
+                <center><h1>Gestion des réservations</h1> </center>
                 <br> <br>
                <form action="modifierchambre.php?idchambre=<?=$chambre['idchambre']?>" method="post">
         <div class="table-responsive table--no-card m-b-30">
         <tr>
             <td>Etage</td>
-            <td><input type='text' name='etage' value ="<?php echo $chambre['etage'];?>" class='form-control' /></td>
+            <td><input type='text' name='etage' value ="<?php echo $chambre['etage'];?>" class='form-control' required/></td>
         </tr>
         <tr>
             <td>Etat</td>
-            <td><input type='text' name='etat'  value ="<?php echo $chambre['etat'];?>" class='form-control' /></td>
+            <td><input type='text' name='etat'  value ="<?php echo $chambre['etat'];?>" class='form-control' required /></td>
+        </tr>
+
+        <tr>
+            <td>Date de création</td>
+     
+            <td><input type="datetime-local" name="date2"  value="<?=date('Y-m-d\TH:i')?>"  class="form-control" placeholder="Left Font Awesome Icon" required >
+        </td>
         </tr>
         
         
