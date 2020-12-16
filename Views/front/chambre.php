@@ -1,44 +1,43 @@
-
-
 <?php
-include_once "../../controller/chambreController.php";
- include_once "../../model/chambre.php";
+ include_once "../../controller/chambreController.php";
+ include_once "../../Model/chambre.php";
 
+ 
 
-$chambreController = new chambreController();
-$Listchambre=$chambreController->afficherchambre();
+ $chambreController=new chambreController();
+ $Listchambre=$chambreController->afficherchambre();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>nos equipes medicales  </title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
+  <title>Pacific - Free Bootstrap 4 Template by Colorlib</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/animate.css">
+  
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/style.css">
+  
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+ <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
      <div class="logo2"><img src="logo2.png" height="60" width="60"alt="IMG"></div>
-     <a class="navbar-brand" href="index.html"><FONT size="6pt">SEIN SAIN</FONT> <B><span><font color ="white">CENTRE</font></span></B></a>
+     <a class="navbar-brand" href=""><FONT size="6pt">SEIN SAIN</FONT> <B><span><font color ="white">CENTRE</font></span></B></a>
 
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
        <span class="oi oi-menu"></span> Menu
@@ -49,7 +48,7 @@ $Listchambre=$chambreController->afficherchambre();
          <li class="nav-item"><a href="" class="nav-link">Accueil</a></li>
         
           <li class="nav-item"><a href="medecin.php" class="nav-link"> équipes médicales</a></li>
-          <li class="nav-item "><a href="" class="nav-link">Nos chambres </a></li> 
+          <li class="nav-item "><a href="chambre.php" class="nav-link">Nos chambres </a></li> 
           <li class="nav-item active"><a href="blog.php" class="nav-link"> Blog</a></li>
           <li class="nav-item"><a href="file:///C:/Users/asus/Documents/projet%20web/front/sein%20sain%20front/formulaire%20inscription/colorlib-regform-8/index.html" class="nav-link">S'inscrire</a></li>
 
@@ -58,51 +57,54 @@ $Listchambre=$chambreController->afficherchambre();
      </div>
    </div>
  </nav>
-<!-- END nav -->
-
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/equipe.jpg');">
+ <!-- END nav -->
+ 
+ <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
       <div class="col-md-9 ftco-animate pb-5 text-center">
-         <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Accueil<i class="fa fa-chevron-right"></i></a></span> <span>Nos équipes médicales <i class="fa fa-chevron-right"></i></span></p>
-         <h1 class="mb-0 bread">LISTE DES EQUIPES PERTINENTS </h1>
+       <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Accueil <i class="fa fa-chevron-right"></i></a></span> <span>Nos événements <i class="fa fa-chevron-right"></i></span></p>
+       <h1 class="mb-0 bread">Nos événements</h1>
      </div>
+   </div>
  </div>
-</div>
 </section>
 
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<section class="ftco-section">
+  <div class="container">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function(){  
             $("#myInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
                 $("#myTable tr").filter(function() {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        });
-    </script>  
-  
-    <section class="content">
-        <div class="container-fluid">
-            <div class="block-header">
-                <center><h1>Gestion des chambres</h1> </center>
-                <br> <br>
-                <h2>Liste des chambres</h2><br>
-                <input id="myInput" type="text" name="rechercher" placeholder="rechercher ..."> <br>
-                <br>
-               <div class="table-responsive table--no-card m-b-30">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
+        });   
+    </script>
+  <div class="row clearfix">
+  <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                                <label>Recherche:<input id="myInput"  type="text"name="rechercher" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1"></label></div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                              Liste des chambre
+                            </h2>
+                           
+                        </div>
+                        <div class="body">
+                        
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                      <thead>
                                             <tr>
                                             <th>id</th>
                                                 <th>Etage </th>
                                                 <th>Etat </th>
-                                                
-                                          
+
                                             </tr>
                                         </thead>
                                         <tbody id="myTable">
@@ -121,34 +123,27 @@ $Listchambre=$chambreController->afficherchambre();
                                                     <td>
                                                     <?PHP echo $row['etat']; ?>
                                                     </td>
-                                                    
-                                                   
-                                                  
-                                                 
-                                                    <td>
-                                                
-                                                   
-                                                    
-                                                   
+                            
                                                 </tr>
                                             
                                      
                                                 <?php
                           }
                           ?>
-                                        </tbody>
-                                    </table>
-
-
-
-                                </div>
-         
-                <!-- #END# Browser Usage -->
+                                       
+                                       </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+            
+            </div>
+                       
 
-    <section class="ftco-intro ftco-section ftco-no-pt">
+</section>
+<section class="ftco-intro ftco-section ftco-no-pt">
  <div class="container">
   <div class="row justify-content-center">
    <div class="col-md-12 text-center">

@@ -245,9 +245,40 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">perm_media</i>
+                            <span>Gestion Chambre </span>
+                        </a>
+                        <ul class="active">
+                            
+                            <li>
+                                <a href="../chambre/Ajouterchambre.php">Créer un chambre</a>
+                            </li>
+                            <li>
+                                <a href="../chambre/consulterchambres.php">list des chambres</a>
+                            </li>
+                            <li>
+                                <a href="../chambre/statistiquechambres.php">Statistique </a>
+                            </li>
+                        </ul>
+                    </li>   
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">perm_media</i>
+                            <span>Gestion Occupation </span>
+                        </a>
+                        <ul class="active">
+                            
+                            <li>
+                                <a href="../occupation/Ajouteroccupation.php">Créer une occupation</a>
+                            </li>
+                            <li>  
+                                <a href="../occupation/consulteroccupation.php">list des occupations</a>
+                            </li>
+                        </ul>
+                    </li>
                    
-               
-                    
                    
                 </ul>
             </div>
