@@ -1,12 +1,43 @@
-consulterchambres.php
+ajouteroccupation.php
+
 <?php
-include_once "../../../controller/chambreController.php";
- include_once "../../../model/chambre.php";
+function pdo_connect_mysql() {
+  $DATABASE_HOST = 'localhost';
+  $DATABASE_USER = 'root';
+  $DATABASE_PASS = '';
+  $DATABASE_NAME = 'projetmedecin';
+  try {
+    return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
+  } catch (PDOException $exception) {
+    // If there is an error with the connection, stop the script and display the error.
+    exit('Failed to connect to database!');
+  }
+}
+$pdo = pdo_connect_mysql();
+$msg = '';
 
+if (!empty($_POST)) {
 
-$chambreController = new chambreController();
-$Listchambre=$chambreController->afficherchambre();
+	$idoccpation = isset($_POST['idoccpation']) && !empty($_POST['idoccpation']) && $_POST['idoccpation'] != 'auto' ? $_POST['idoccpation'] : NULL;
+   
+    $idpatient = isset($_POST['idpatient']) && !empty($_POST['idpatient']) && $_POST['idpatient'] != 'auto' ? $_POST['idpatient'] : NULL;
+    
+    $idchambre = isset($_POST['idchambre']) ? $_POST['idchambre'] : '';
+    
+    $date1 = isset($_POST['date1']) ? $_POST['date1'] : '';
+    
+
+    $stmt = $pdo->prepare('INSERT INTO reservation VALUES (?,?,?,?)');
+    $stmt->execute([$idoccpation, $idpatient ,$idchambre ,$date1]);
+
+    $msg = 'reservation Ajouter!';
+   
+}
+
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -254,7 +285,7 @@ $Listchambre=$chambreController->afficherchambre();
                         <ul class="ml-menu">
                             
                             <li>
-                                <a href="Views/Ajouterchambre.php">Gestion Chambre</a>
+                                <a href="Views/chambre.php">Gestion Chambre</a>
                             </li>
                         </ul>
                     </li>
@@ -318,94 +349,52 @@ $Listchambre=$chambreController->afficherchambre();
         
     </section>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("#myInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#myTable tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script>
-
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <center><h1>Gestion des chambres</h1> </center>
+                <center><h1>Gestion des réservations</h1> </center>
                 <br> <br>
-                <h2>Liste des chambres</h2><br>
-                <input id="myInput" type="text" name="rechercher" placeholder="rechercher ..."> <br>
-                <br>
-               <div class="table-responsive table--no-card m-b-30">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                            <tr>
-                                            <th>id</th>
-                                                <th>Etage </th>
-                                                <th>Etat </th>
-                                                
-                                          
-                                            </tr>
-                                        </thead>
-                                        <tbody id="myTable">
-                                        <?php
-                          
-                          foreach ($Listchambre as $row) {?>
-                                                <tr class="tr-shadow">
-                                                    
-                                                    <td>
-                                                    <?php echo $row['idchambre']; ?>
-                                                    </td>
-                                                    <td>
-                                                    <?php echo $row['etage']; ?>
-                                                    </td>
-                                                    
-                                                    <td>
-                                                    <?PHP echo $row['etat']; ?>
-                                                    </td>
-                                                    
-                                                   
-                                                  
-                                                 
-                                                    <td>
-                                                
-                                                    <td>
-                                                    <form
-                                  method="POST" action="supprimerchambre.php">
-                        <input type="submit" name="supprimer" value="supprimer">
-                        <input type="hidden" value=<?PHP echo $row['idchambre']; ?> name="idchambre">
-                        <td>
-                        <a href="modifierchambre.php?idchambre=<?PHP echo $row['idchambre']; ?>"> Modifier </a>
-                    </td>
-                               </form>
-                                                    </td>
-                                                    <tr class="spacer"></tr>
-                                                   
-                                                </tr>
-                                            
-                                     
-                                                <?php
-                          }
-                          ?>
-                                        </tbody>
-                                    </table>
+                <form action="ajouteroccupation.php" method="post">
+              <div >
+                <div class="form-group has-successform-group has-success">
+                  <input width="100" type="text"  name="idpatient" placeholder="id_Patient" class="form-control" required />
+                </div>
+              </div>
+              <div >
+                <div class="form-group has-success">
+                  <input type="text" name="idchambre" placeholder="id_chambre" class="form-control form-control-success" required />
+                </div>
+              </div>
+              <div >
+                <div class="form-group has-success">
+                  <input type="datetime-local" name="date1"  value="<?=date('Y-m-d\TH:i')?>"  class="form-control" placeholder="Left Font Awesome Icon" required >
+                </div>
+              </div>
 
-
-
-                                </div>
-         
+              
+              
+              
+            
+            </div>
+              
+            <button class="btn btn-success" type="submit">Ajouter</button>
+           
+           <button class="btn btn-danger" type ="reset">annuler </button>
+           <td>
+              
+                <a href='consulteroccupation.php' class='btn btn-premiere'>consulter mes reservations</a>
+            </td> 
+           </form>       
                 <!-- #END# Browser Usage -->
             </div>
         </div>
     </section>
 
     <!-- Jquery Core Js -->
-    <script src="../plugins/jquery/jquery.min.js"></script>
+    <script src=../"plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->
-    <script src="../plugins/bootstrap/js/bootstrap.js"></script>
+    <script src=../plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
     <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>

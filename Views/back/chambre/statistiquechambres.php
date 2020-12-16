@@ -1,13 +1,19 @@
-consulterchambres.php
+
+
+
 <?php
-include_once "../../../controller/chambreController.php";
- include_once "../../../model/chambre.php";
+
+$dbhandle = new mysqli('127.0.0.1', 'root', '','projetmedecin');
+echo $dbhandle->connect_error;
+
+$query = "SELECT  etat, count(etat)  FROM chambre  group by etat";
+$res = 	$dbhandle->query($query);
 
 
-$chambreController = new chambreController();
-$Listchambre=$chambreController->afficherchambre();
+
+
+
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -328,76 +334,60 @@ $Listchambre=$chambreController->afficherchambre();
                 });
             });
         });
-    </script>
+
+        </script>
 
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <center><h1>Gestion des chambres</h1> </center>
-                <br> <br>
-                <h2>Liste des chambres</h2><br>
-                <input id="myInput" type="text" name="rechercher" placeholder="rechercher ..."> <br>
-                <br>
-               <div class="table-responsive table--no-card m-b-30">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                            <tr>
-                                            <th>id</th>
-                                                <th>Etage </th>
-                                                <th>Etat </th>
-                                                
-                                          
-                                            </tr>
-                                        </thead>
-                                        <tbody id="myTable">
-                                        <?php
-                          
-                          foreach ($Listchambre as $row) {?>
-                                                <tr class="tr-shadow">
-                                                    
-                                                    <td>
-                                                    <?php echo $row['idchambre']; ?>
-                                                    </td>
-                                                    <td>
-                                                    <?php echo $row['etage']; ?>
-                                                    </td>
-                                                    
-                                                    <td>
-                                                    <?PHP echo $row['etat']; ?>
-                                                    </td>
-                                                    
-                                                   
-                                                  
-                                                 
-                                                    <td>
-                                                
-                                                    <td>
-                                                    <form
-                                  method="POST" action="supprimerchambre.php">
-                        <input type="submit" name="supprimer" value="supprimer">
-                        <input type="hidden" value=<?PHP echo $row['idchambre']; ?> name="idchambre">
-                        <td>
-                        <a href="modifierchambre.php?idchambre=<?PHP echo $row['idchambre']; ?>"> Modifier </a>
-                    </td>
-                               </form>
-                                                    </td>
-                                                    <tr class="spacer"></tr>
-                                                   
-                                                </tr>
-                                            
-                                     
-                                                <?php
-                          }
-                          ?>
-                                        </tbody>
-                                    </table>
 
 
 
-                                </div>
-         
-                <!-- #END# Browser Usage -->
-            </div>
+
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+		
+		['etat','etat'],
+         <?php
+		 
+		 //fetch_assoc(): lit une ligne de résultat MySql dans un tableau associatif //
+		 
+		 while ($row=$res->fetch_assoc()) {
+			 
+			 echo "['".$row['etat']."',".$row['count(etat)']."],"; 
+			 
+		 }
+		 
+		 
+		 
+		 
+		 ?>
+        ]);
+
+        var options = {
+          title: '0:chambre non réservée | 1:chambre réservée',
+		  is3D:true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+ 
+    <div id="piechart" style="width: 800px; height: 500px;"></div>
+
+ </div>
         </div>
     </section>
 
@@ -442,6 +432,9 @@ $Listchambre=$chambreController->afficherchambre();
 
     <!-- Demo Js -->
     <script src="../js/demo.js"></script>
-</body>
 
+    
+  </body>
 </html>
+
+

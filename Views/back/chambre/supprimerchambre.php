@@ -1,8 +1,8 @@
 supprimerchambre.php
 
 <?php
- include_once "../controller/chambreController.php";
- include_once "../model/chambre.php";
+ include_once "../../../controller/chambreController.php";
+ include_once "../../../model/chambre.php";
 
 $chambreController=new chambreController();
 
