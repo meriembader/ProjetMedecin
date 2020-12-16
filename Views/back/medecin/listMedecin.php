@@ -213,103 +213,39 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">NAVIGATION PRINCIPALE</li>
-                    <li>
-                        <a href="../index.html">
-                            <i class="material-icons">home</i>
-                            <span>Accueil</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../pages/typography.html">
-                            <i class="material-icons">text_fields</i>
-                            <span>A propos</span>
-                        </a>
-                    </li>
+                   
                     <li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Les équipes médicales</span>
                         </a>
-                        <ul class="ml-menu">
+                        <ul class="active">
                             <li>
-                                <a href="../pages/tables/normal-tables.html">Les médecins</a>
+                                <a href="../medecin/listMedecin.php">list des médecins</a>
                             </li>
-                            <li class="active">
-                                <a href="../pages/tables/jquery-datatable.html">Les infirmiers </a>
+                            <li>
+                                <a href="../medecin/ajoutMedecin.php">Ajouter medecin</a>
                             </li>
+                              
                             
                         </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">perm_media</i>
-                            <span>Nos chambres</span>
+                            <span>Gestion Blog </span>
                         </a>
-                        <ul class="ml-menu">
+                        <ul class="active">
                             
                             <li>
-                                <a href="../pages/medias/carousel.html">Carrousel</a>
+                                <a href="../blog/ajoutBlog.php">Créer un blog</a>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">pie_chart</i>
-                            <span>Charts</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="../pages/charts/morris.html">Morris</a>
-                            </li>
-                            <li>
-                                <a href="../pages/charts/sparkline.html">Sparkline</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">content_copy</i>
-                            <span>Exemples de pages</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="../pages/examples/sign-in.html">se connecter</a>
-                            </li>
-                            
-                            <li>
-                                <a href="../pages/examples/forgot-password.html">mot de passe oublié</a>
-                            </li>
-                            <li>
-                                <a href="../pages/examples/404.html">404 - non trouvée</a>
-                            </li>
-                            <li>
-                                <a href="../pages/examples/500.html">500 - erreur</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">map</i>
-                            <span>Maps</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="../pages/maps/google.html">Google Map</a>
-                            </li>
-                            <li>
-                                <a href="../pages/maps/yandex.html">YandexMap</a>
-                            </li>
-                            
-                        </ul>
-                    </li>
+                   
+               
                     
-                    <li>
-                        <a href="../changelogs.html">
-                            <i class="material-icons">update</i>
-                            <span>Changelogs</span>
-                        </a>
-                    </li>
-                    
+                   
                 </ul>
             </div>
             <!-- #Menu -->
