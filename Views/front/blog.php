@@ -5,7 +5,7 @@
  
 
  $blogC=new blogC();
- $listeBlog=$blogC->afficherblog();
+ $listeBlog=$blogC->afficherJoinedBlog();
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +102,8 @@
                                         <tr>
                                             <th>Image</th>
                                             <th>Titre</th>
-                                            <th>Id medecin</th>
+                                            <th>Nom medecin</th>
+                                            <th>description</th>
                                             <th>date</th>
                                           
                                             
@@ -122,7 +123,8 @@
                                 <?php echo $row['titre']; ?>
                                 </td>
                                
-                                <td ><?PHP echo $row['idM']; ?></td>
+                                <td ><?PHP echo $row ['prenom']; ?></td>
+                                <td ><?PHP echo $row['description']; ?></td>
                                 <td><?PHP echo $row['date']; ?></td>
                                
                               

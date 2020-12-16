@@ -46,6 +46,13 @@
 			return $liste;
 			
 		}
+		function afficherJoinedBlog(){
+			$db = config::getConnexion();
+			$sql="SELECT blog.idB, medecin.prenom, blog.titre, blog.description, blog.chemin_img, blog.date FROM blog INNER JOIN medecin ON blog.idM=medecin.idM";
+			$liste=$db->query($sql);
+			return $liste;
+			
+		}
 		function afficherBlogE(){
 			$db = config::getConnexion();
 			$sql="SELECT chemin_img, idM, description, date FROM blog ";

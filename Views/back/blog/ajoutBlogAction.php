@@ -22,13 +22,14 @@
         if (!empty($_POST)) {
             $idB = isset($_POST['idB']) && !empty($_POST['idB']) && $_POST['idB'] != 'auto' ? $_POST['idB'] : NULL;
             $titre = isset($_POST['titre']) ? $_POST['titre'] : '';
-            $date = isset($_POST['date']) ? $_POST['date'] : '';
+            $description = isset($_POST['description']) ? $_POST['description'] : '';
+
             $chemin_img = isset($_POST['chemin_img']) ? $_POST['chemin_img'] : '';
             $idM = isset($_POST['idM']) ? $_POST['idM'] : '';
             $date = isset($_POST['date']) ? $_POST['date'] : '';
             
             $stmt = $pdo->prepare('INSERT INTo blog VALUES (?, ?, ?, ?, ?, ?)');
-            $stmt->execute([$idB, $titre, $date, $chemin_img, $idM, $date]);
+            $stmt->execute([$idB, $titre, $description, $chemin_img, $idM, $date]);
             // Output message
             $msg = 'Created Successfully!';
         }

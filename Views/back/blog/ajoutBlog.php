@@ -555,7 +555,8 @@
                                       </div>
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                                        <input type="text" class="form-control" name="description" id="description" required>
+                                            
                                             <label class="form-label">Description*</label>
                                         </div>
                                     </div>
