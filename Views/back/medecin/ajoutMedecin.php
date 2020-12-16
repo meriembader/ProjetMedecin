@@ -327,6 +327,9 @@
                             <li>
                                 <a href="../blog/ajoutBlog.php">Créer un blog</a>
                             </li>
+                            <li>
+                                <a href="../blog/listBlog.php">list des blog</a>
+                            </li>
                         </ul>
                     </li>
                    
