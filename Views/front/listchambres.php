@@ -1,51 +1,13 @@
-ajouteroccupation.php
+
 
 <?php
-function pdo_connect_mysql() {
-  $DATABASE_HOST = 'localhost';
-  $DATABASE_USER = 'root';
-  $DATABASE_PASS = '';
-  $DATABASE_NAME = 'projetmedecin';
-  try {
-    return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
-  } catch (PDOException $exception) {
-    // If there is an error with the connection, stop the script and display the error.
-    exit('Failed to connect to database!');
-  }
-}
-$pdo = pdo_connect_mysql();
-$msg = '';
-
-if (!empty($_POST)) {
-
-	$idoccpation = isset($_POST['idoccpation']) && !empty($_POST['idoccpation']) && $_POST['idoccpation'] != 'auto' ? $_POST['idoccpation'] : NULL;
-   
-    $idpatient = isset($_POST['idpatient']) && !empty($_POST['idpatient']) && $_POST['idpatient'] != 'auto' ? $_POST['idpatient'] : NULL;
-    
-    $idchambre = isset($_POST['idchambre']) ? $_POST['idchambre'] : '';
-    
-    $date1 = isset($_POST['date1']) ? $_POST['date1'] : '';
-    
-
-    $stmt = $pdo->prepare('INSERT INTO reservation VALUES (?,?,?,?)');
-    $stmt->execute([$idoccpation, $idpatient ,$idchambre ,$date1]);
+include_once "../../controller/chambreController.php";
+ include_once "../../model/chambre.php";
 
 
-    
-
-    $etatnov = 1;
-    $stmt2 = $pdo->prepare('UPDATE chambre SET  etat = ?  WHERE idchambre = ?');
-        $stmt2->execute([$etatnov, $_GET['idchambre']]);
-      
-
-    $msg = 'reservation Ajouter!';
-   
-}
-
+$chambreController = new chambreController();
+$Listchambre=$chambreController->afficherchambre();
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -56,29 +18,29 @@ if (!empty($_POST)) {
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
     <!-- Favicon-->
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
-    <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
 
     <!-- Morris Chart Css-->
-    <link href="../plugins/morrisjs/morris.css" rel="stylesheet" />
+    <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
 
     <!-- Custom Css -->
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../css/themes/all-themes.css" rel="stylesheet" />
+    <link href="css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
 <body class="theme-orange
@@ -293,7 +255,7 @@ if (!empty($_POST)) {
                         <ul class="ml-menu">
                             
                             <li>
-                                <a href="Views/chambre.php">Gestion Chambre</a>
+                                <a href="Views/Ajouterchambre.php">Gestion Chambre</a>
                             </li>
                         </ul>
                     </li>
@@ -357,88 +319,121 @@ if (!empty($_POST)) {
         
     </section>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <center><h1>Gestion des réservations</h1> </center>
+                <center><h1>Gestion des chambres</h1> </center>
                 <br> <br>
-                <form action="ajouteroccupation.php" method="post">
-              <div >
-                <div class="form-group has-successform-group has-success">
-                  <input width="100" type="text"  name="idpatient" placeholder="id_Patient" class="form-control" required />
-                </div>
-              </div>
-              <div >
-                <div class="form-group has-success">
-                  <input type="text" name="idchambre" placeholder="id_chambre" class="form-control form-control-success" required />
-                </div>
-              </div>
-              <div >
-                <div class="form-group has-success">
-                  <input type="datetime-local" name="date1"  value="<?=date('Y-m-d\TH:i')?>"  class="form-control" placeholder="Left Font Awesome Icon" required >
-                </div>
-              </div>
+                <h2>Liste des chambres</h2><br>
+                <input id="myInput" type="text" name="rechercher" placeholder="rechercher ..."> <br>
+                <br>
+               <div class="table-responsive table--no-card m-b-30">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                            <th>id</th>
+                                                <th>Etage </th>
+                                                <th>Etat </th>
+                                                
+                                          
+                                            </tr>
+                                        </thead>
+                                        <tbody id="myTable">
+                                        <?php
+                          
+                          foreach ($Listchambre as $row) {?>
+                                                <tr class="tr-shadow">
+                                                    
+                                                    <td>
+                                                    <?php echo $row['idchambre']; ?>
+                                                    </td>
+                                                    <td>
+                                                    <?php echo $row['etage']; ?>
+                                                    </td>
+                                                    
+                                                    <td>
+                                                    <?PHP echo $row['etat']; ?>
+                                                    </td>
+                                                    
+                                                   
+                                                  
+                                                 
+                                                    <td>
+                                                
+                                                   
+                                                    
+                                                   
+                                                </tr>
+                                            
+                                     
+                                                <?php
+                          }
+                          ?>
+                                        </tbody>
+                                    </table>
 
-              
-              
-              
-            
-            </div>
-              
-            <button class="btn btn-success" type="submit">Ajouter</button>
-           
-           <button class="btn btn-danger" type ="reset">annuler </button>
-           <td>
-              
-                <a href='consulteroccupation.php' class='btn btn-premiere'>consulter mes reservations</a>
-            </td> 
-           </form>       
+
+
+                                </div>
+         
                 <!-- #END# Browser Usage -->
             </div>
         </div>
     </section>
 
     <!-- Jquery Core Js -->
-    <script src=../"plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->
-    <script src=../plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- Slimscroll Plugin Js -->
-    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Waves Effect Plugin Js -->
-    <script src="../plugins/node-waves/waves.js"></script>
+    <script src="plugins/node-waves/waves.js"></script>
 
     <!-- Jquery CountTo Plugin Js -->
-    <script src="../plugins/jquery-countto/jquery.countTo.js"></script>
+    <script src="plugins/jquery-countto/jquery.countTo.js"></script>
 
     <!-- Morris Plugin Js -->
-    <script src="../plugins/raphael/raphael.min.js"></script>
-    <script src="../plugins/morrisjs/morris.js"></script>
+    <script src="plugins/raphael/raphael.min.js"></script>
+    <script src="plugins/morrisjs/morris.js"></script>
 
     <!-- ChartJs -->
-    <script src="../plugins/chartjs/Chart.bundle.js"></script>
+    <script src="plugins/chartjs/Chart.bundle.js"></script>
 
     <!-- Flot Charts Plugin Js -->
-    <script src="../plugins/flot-charts/jquery.flot.js"></script>
-    <script src="../plugins/flot-charts/jquery.flot.resize.js"></script>
-    <script src="../plugins/flot-charts/jquery.flot.pie.js"></script>
-    <script src="../plugins/flot-charts/jquery.flot.categories.js"></script>
-    <script src="../plugins/flot-charts/jquery.flot.time.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.time.js"></script>
 
     <!-- Sparkline Chart Plugin Js -->
-    <script src="../plugins/jquery-sparkline/jquery.sparkline.js"></script>
+    <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
 
     <!-- Custom Js -->
-    <script src="../js/admin.js"></script>
-    <script src="../js/pages/index.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/pages/index.js"></script>
 
     <!-- Demo Js -->
-    <script src="../js/demo.js"></script>
+    <script src="js/demo.js"></script>
 </body>
 
 </html>

@@ -23,10 +23,11 @@ if (!empty($_POST)) {
     
     $etat = isset($_POST['etat']) ? $_POST['etat'] : '';
     
+    $date2 = isset($_POST['date2']) ? $_POST['date2'] : '';
     
 
-    $stmt = $pdo->prepare('INSERT INTO chambre VALUES (?,?,?)');
-    $stmt->execute([$idchambre, $etage ,$etat]);
+    $stmt = $pdo->prepare('INSERT INTO chambre VALUES (?,?,?,?)');
+    $stmt->execute([$idchambre, $etage ,$etat ,$date2]);
 
     $msg = 'chambre Ajouter!';
    
@@ -275,7 +276,7 @@ if (!empty($_POST)) {
                            
                         </ul>
                     </li>
-                    <li>
+                   <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">perm_media</i>
                             <span>Nos chambres</span>
@@ -283,8 +284,10 @@ if (!empty($_POST)) {
                         <ul class="ml-menu">
                             
                             <li>
-                                <a href="Views/chambre.php">Gestion Chambre</a>
+                                <a href="Views/Ajouterchambre.php">Gestion Chambre</a>
+                                <a href="statistiquechambres.php">Statistiques</a>
                             </li>
+                            
                         </ul>
                     </li>
                     
@@ -361,6 +364,12 @@ if (!empty($_POST)) {
               <div >
                 <div class="form-group has-success">
                   <input type="text" name="etat" placeholder="état_chambre:0:non occupée , 1:occupée" class="form-control form-control-success" required />
+                </div>
+              </div>
+
+              <div >
+                <div class="form-group has-success">
+                  <input type="datetime-local" name="date2"  value="<?=date('Y-m-d\TH:i')?>"  class="form-control" placeholder="Left Font Awesome Icon" required >
                 </div>
               </div>
               

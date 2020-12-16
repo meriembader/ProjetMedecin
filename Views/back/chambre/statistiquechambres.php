@@ -260,7 +260,8 @@ $res = 	$dbhandle->query($query);
                         <ul class="ml-menu">
                             
                             <li>
-                                <a href="Views/Ajouterchambre.php">Gestion Chambre</a>
+
+                                <a href="Ajouterchambre.php">Gestion Chambre</a>
                             </li>
                         </ul>
                     </li>
