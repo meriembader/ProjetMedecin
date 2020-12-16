@@ -1,21 +1,13 @@
-﻿<?php  
-     include_once "../../../Controller/medecinC.php";
-     include_once "../../../Model/medecin.php";
+<?php
+ include_once "../../../controller/blogC.php";
+ include_once "../../../Model/blog.php";
 
-  
+ 
 
-  $medecinC=new medecinC();
-  $listeMedecin=$medecinC->afficherMedecin();
+ $blogC=new blogC();
+ $listeBlog=$blogC->afficherblog();
+?>
 
- /* 
-  else if(isset($_POST['supprimer'])){
-   
-    $produitC->supprimerproduit($_POST['reference']);
-    header('location: list_produits.php');
-  }*/
-  
-
-  ?>
 <!DOCTYPE html>
 <html>
 
@@ -287,45 +279,43 @@
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                    <thead>
+                                    
                                         <tr>
-                                            <th>Nom</th>
-                                            <th>Prenom</th>
-                                            <th>Age</th>
-                                            <th>departement</th>
-                                            <th> Telephone</th>
-                                            <th> action </th>
+                                            <th>Image</th>
+                                            <th>Titre</th>
+                                            <th>Id medecin</th>
+                                            <th>date</th>
+                                          
                                             
                                         </tr>
-                                    </thead>
+                                    
                                     
                                     <tbody>
                                                  
-                                        <?php      foreach ($listeMedecin as $row) {?>
+                                        <?php      foreach ($listeBlog as $row) {?>
                             <tr class="tr-shadow">
                                
                                
                                 <td>
-                                <?php echo $row['nom']; ?></
+                                <img   src="images/<?php echo $row['chemin_img']; ?>"</img>
                                 </td>
                                 <td>
-                                <?php echo $row['prenom']; ?></
+                                <?php echo $row['titre']; ?>
                                 </td>
-                                <td class="desc"><?PHP echo $row['age']."ans"; ?></td>
-                                <td><?PHP echo $row['departement']; ?></td>
-                                <td>
-                                <?PHP echo $row['telephone']; ?>
-                                </td>
+                               
+                                <td ><?PHP echo $row['idM']; ?></td>
+                                <td><?PHP echo $row['date']; ?></td>
                                 <td>
                                 <form
-                                  method="POST" action="supprimerMedecin.php">
+                                  method="POST" action="supprimerBlog.php">
                         <input type="submit" name="supprimer" value="supprimer">
-                        <input type="hidden" value=<?PHP echo $row['idM']; ?> name="idM">
+                        <input type="hidden" value=<?PHP echo $row['idB']; ?> name="idB">
                         
-                        <a href="modifierMedecin.php?idM=<?PHP echo $row['idM']; ?>" type="button"> Modifier </a>
+                        <a href="modifierBlog.php?idB=<?PHP echo $row['idB']; ?>" type="button"> Modifier </a>
                     </td>
                                </form>
                                                     </td>
+
                                                     <tr class="spacer"></tr>
                                                    
                                                 </tr>
@@ -334,17 +324,15 @@
                                                 <?php
                           }
                           ?>
-                                      
-                                      
-                                    </tbody>
+    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- #END# Exportable Table -->
-        </div>
+                        </div>
+
     </section>
 
     <!-- Jquery Core Js -->
