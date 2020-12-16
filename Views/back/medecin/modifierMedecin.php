@@ -586,7 +586,7 @@ else {
         
      
                                         <button class="btn btn-success waves-effect" type="submit">Valider</button>
-                                <button class="btn btn-danger waves-effect" type="reset">Annuler</button>
+                                        <a href='listMedecin.php' class='btn btn-danger'>Back</a>
                                 </table>
                             </form>
                             <?php if ($msg): ?>
