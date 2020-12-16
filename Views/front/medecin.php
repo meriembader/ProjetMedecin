@@ -38,29 +38,29 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
- <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
    <div class="container">
-    <div class="logo2"><img src="logo2.png" height="60" width="60"alt="IMG"></div>
+     <div class="logo2"><img src="logo2.png" height="60" width="60"alt="IMG"></div>
      <a class="navbar-brand" href="index.html"><FONT size="6pt">SEIN SAIN</FONT> <B><span><font color ="white">CENTRE</font></span></B></a>
 
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
        <span class="oi oi-menu"></span> Menu
-   </button>
+     </button>
 
-   <div class="collapse navbar-collapse" id="ftco-nav">
+     <div class="collapse navbar-collapse" id="ftco-nav">
        <ul class="navbar-nav ml-auto">
-         <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
-         <li class="nav-item"><a href="about.html" class="nav-link">Paiement</a></li>
-         <li class="nav-item active"><a href="destination.html" class="nav-link">Nos équipes médicales</a></li>
-         <li class="nav-item"><a href="hotel.html" class="nav-link">Nos chambres </a></li>
-         <li class="nav-item"><a href="blog.html" class="nav-link">Nos évenements</a></li>
-         <li class="nav-item"><a href="file:///C:/Users/asus/Documents/projet%20web/front/sein%20sain%20front/formulaire%20inscription/colorlib-regform-8/index.html" class="nav-link">S'inscrire</a></li>
-         <li class="nav-item"><a href="contact.html" class="nav-link">Contacter</a></li>
+         <li class="nav-item"><a href="" class="nav-link">Accueil</a></li>
+        
+          <li class="nav-item"><a href="medecin.php" class="nav-link"> équipes médicales</a></li>
+          <li class="nav-item "><a href="" class="nav-link">Nos chambres </a></li> 
+          <li class="nav-item active"><a href="blog.php" class="nav-link"> Blog</a></li>
+          <li class="nav-item"><a href="file:///C:/Users/asus/Documents/projet%20web/front/sein%20sain%20front/formulaire%20inscription/colorlib-regform-8/index.html" class="nav-link">S'inscrire</a></li>
 
-     </ul>
- </div>
-</div>
-</nav>
+          <li class="nav-item"><a href="" class="nav-link">Contacter</a></li>
+       </ul>
+     </div>
+   </div>
+ </nav>
 <!-- END nav -->
 
 <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/equipe.jpg');">
