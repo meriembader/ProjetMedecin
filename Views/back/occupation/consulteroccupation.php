@@ -1,11 +1,12 @@
-consulterchambres.php
+consulteroccupation.php
+
 <?php
-include_once "../../../controller/chambreController.php";
- include_once "../../../model/chambre.php";
+include_once "../../../controller/occupationController.php";
+ include_once "../../../model/occupation.php";
 
 
-$chambreController = new chambreController();
-$Listchambre=$chambreController->afficherchambre();
+$occupationController = new occupationController();
+$Listoccupation=$occupationController->afficheroccupation();
 ?>
 
 <!DOCTYPE html>
@@ -333,18 +334,19 @@ $Listchambre=$chambreController->afficherchambre();
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <center><h1>Gestion des chambres</h1> </center>
+                <center><h1>Gestion des réservations</h1> </center>
                 <br> <br>
-                <h2>Liste des chambres</h2><br>
+                <h2>Liste des réservations</h2><br>
                 <input id="myInput" type="text" name="rechercher" placeholder="rechercher ..."> <br>
                 <br>
                <div class="table-responsive table--no-card m-b-30">
                                     <table class="table table-borderless table-striped table-earning">
                                         <thead>
                                             <tr>
-                                            <th>id</th>
-                                                <th>Etage </th>
-                                                <th>Etat </th>
+                                                <th>id_Réservation </th>
+                                                <th>id_Patient </th>
+                                                <th>id_Chambre </th>
+                                                <th>Date de réservation </th>
                                                 
                                           
                                             </tr>
@@ -352,18 +354,22 @@ $Listchambre=$chambreController->afficherchambre();
                                         <tbody id="myTable">
                                         <?php
                           
-                          foreach ($Listchambre as $row) {?>
+                          foreach ($Listoccupation as $row) {?>
                                                 <tr class="tr-shadow">
                                                     
                                                     <td>
-                                                    <?php echo $row['idchambre']; ?>
+                                                    <?php echo $row['idoccupation']; ?>
                                                     </td>
                                                     <td>
-                                                    <?php echo $row['etage']; ?>
+                                                    <?php echo $row['idpatient']; ?>
                                                     </td>
                                                     
                                                     <td>
-                                                    <?PHP echo $row['etat']; ?>
+                                                    <?PHP echo $row['idchambre']; ?>
+                                                    </td>
+
+                                                    <td>
+                                                    <?PHP echo $row['date1']; ?>
                                                     </td>
                                                     
                                                    
@@ -373,11 +379,11 @@ $Listchambre=$chambreController->afficherchambre();
                                                 
                                                     <td>
                                                     <form
-                                  method="POST" action="supprimerchambre.php">
+                                  method="POST" action="supprimeroccupation.php">
                         <input type="submit" name="supprimer" value="supprimer">
-                        <input type="hidden" value=<?PHP echo $row['idchambre']; ?> name="idchambre">
+                        <input type="hidden" value=<?PHP echo $row['idoccupation']; ?> name="idoccupation">
                         <td>
-                        <a href="modifierchambre.php?idchambre=<?PHP echo $row['idchambre']; ?>"> Modifier </a>
+                        <a href="modifieroccupation.php?idoccupation=<?PHP echo $row['idoccupation']; ?>"> Modifier </a>
                     </td>
                                </form>
                                                     </td>
