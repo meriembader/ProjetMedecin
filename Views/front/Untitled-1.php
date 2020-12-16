@@ -1,123 +1,379 @@
+
+
 <?php
- include_once "../../controller/blogC.php";
- include_once "../../Model/blog.php";
+include_once "../controller/chambreController.php";
+ include_once "../model/chambre.php";
 
- 
 
- $blogC=new blogC();
- $listeBlog=$blogC->afficherblog();
+$chambreController = new chambreController();
+$Listchambre=$chambreController->afficherchambre();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <title>Pacific - Free Bootstrap 4 Template by Colorlib</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
-  <link rel="stylesheet" href="css/animate.css">
-  
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-  <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
 
-  
-  <link rel="stylesheet" href="css/flaticon.css">
-  <link rel="stylesheet" href="css/style.css">
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="css/themes/all-themes.css" rel="stylesheet" />
 </head>
-<body>
- <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-   <div class="container">
-     <div class="logo2"><img src="logo2.png" height="60" width="60"alt="IMG"></div>
-     <a class="navbar-brand" href="index.html"><FONT size="6pt">SEIN SAIN</FONT> <B><span><font color ="white">CENTRE</font></span></B></a>
 
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="oi oi-menu"></span> Menu
-     </button>
+<body class="theme-orange
+ ">
+    <!-- Page Loader -- >
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">recherche</i>
+        </div>
+        <input type="text" placeholder="START TYPING...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
 
-     <div class="collapse navbar-collapse" id="ftco-nav">
-       <ul class="navbar-nav ml-auto">
-         <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">Paiement</a></li>
-          <li class="nav-item"><a href="destination.html" class="nav-link">Nos équipes médicales</a></li>
-          <li class="nav-item "><a href="hotel.html" class="nav-link">Nos chambres </a></li> 
-          <li class="nav-item active"><a href="blog.html" class="nav-link">Nos événements</a></li>
-          <li class="nav-item"><a href="file:///C:/Users/asus/Documents/projet%20web/front/sein%20sain%20front/formulaire%20inscription/colorlib-regform-8/index.html" class="nav-link">S'inscrire</a></li>
+    <nav class="navbar">
 
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contacter</a></li>
-       </ul>
-     </div>
-   </div>
- </nav>
- <!-- END nav -->
- 
- <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
-      <div class="col-md-9 ftco-animate pb-5 text-center">
-       <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Accueil <i class="fa fa-chevron-right"></i></a></span> <span>Nos événements <i class="fa fa-chevron-right"></i></span></p>
-       <h1 class="mb-0 bread">Nos événements</h1>
-     </div>
-   </div>
- </div>
-</section>
+        <div class="container-fluid">
+            <div class="navbar-header">
 
-<section class="ftco-section">
-  <div class="container">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                  <div class="logo2"><img src="logo2.png" height="50" width="50"alt="IMG"></div>
+                <a href="javascript:void(0);" class="bars"></a>
 
-  <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                              Liste des medecins
-                            </h2>
+                
+            </div>
+
+           
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    
+                    
+                    <!-- Notifications -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="material-icons">notifications</i>
+                            <span class="label-count">5</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">NOTIFICATIONS</li>
+                            <li class="body">
+                                <ul class="menu">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-light-green">
+                                                <i class="material-icons">person_add</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4>12 nouveaux visiteurs</h4>
+                                                <p>
+                                                    <i class="material-icons">access_time</i> 14 mins ago
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                   
+                                   
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-blue-grey">
+                                                <i class="material-icons">comment</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4><b> Maria </b> a laissé un message </h4>
+                                                <p>
+                                                    <i class="material-icons">access_time</i> il y'a deux minutes
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-blue-grey">
+                                                <i class="material-icons">comment</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4><b>Med Taib </b> a laissé un message </h4>
+                                                <p>
+                                                    <i class="material-icons">access_time</i> il y'a 4 minutes
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-blue-grey">
+                                                <i class="material-icons">comment</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4><b>Asma</b> a laissé un message</h4>
+                                                <p>
+                                                    <i class="material-icons">access_time</i> il y'a 3 heures
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-red">
+                                                <i class="material-icons">delete_forever</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4><b>Sinda</b> a supprimé son commentaire</h4>
+                                                <p>
+                                                    <i class="material-icons">access_time</i> il y'a 4 heures
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="javascript:void(0);">voir tous les notifications</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- #END# Notifications -->
+                    
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="images/user3.jpg" width="52" height="52" alt="User" />
+                </div>
+                       <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><B><font size="3pt"> Lamis Hm
+                    </font> </B></div>
+                    <div class="email">lamishammemi65@gmail.com</div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profil</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Abonnés</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Se déconnecter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">NAVIGATION PRINCIPALE</li>
+                    <li class="active">
+                        <a href="index.html">
+                            <i class="material-icons">home</i>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pages/typography.html">
+                            <i class="material-icons">text_fields</i>
+                            <span>A propos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">view_list</i>
+                            <span>Nos équipes médicales</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="pages/tables/normal-tables.html">Les médecins</a>
+                            </li>
+                            <li>
+                                <a href="pages/tables/jquery-datatable.html">Les infirmiers</a>
+
+                            </li>
                            
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                    
-                                        <tr>
-                                            <th>Image</th>
-                                            <th>Titre</th>
-                                            <th>Description</th>
-                                            <th>Id medecin</th>
-                                            <th>date</th>
+                           
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">perm_media</i>
+                            <span>Nos chambres</span>
+                        </a>
+                        <ul class="ml-menu">
+                            
+                            <li>
+                                <a href="Views/Ajouterchambre.php">Gestion Chambre</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">content_copy</i>
+                            <span>Pour contacter</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="pages/examples/sign-in.html">se connecter</a>
+                            </li>
+                           
+                            <li>
+                                <a href="pages/examples/forgot-password.html">mot de passe oublié</a>
+                            </li>
+                            <li>
+                                <a href="pages/examples/404.html">404 - non trouvée</a>
+                            </li>
+                            <li>
+                                <a href="pages/examples/500.html">500 - erreur</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">map</i>
+                            <span>Nos événements</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="pages/maps/google.html">Google Map</a>
+                            </li>
+                            <li>
+                                <a href="pages/maps/yandex.html">YandexMap</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="pages/changelogs.html">
+                            <i class="material-icons">update</i>
+                            <span>Changelogs</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2020 - 2021 <a href="javascript:void(0);">AdminLH-SEIN SAIN centre</a>.
+                </div>
+            </div>
+            <!-- #Footer -->
+            
+        </aside>
+        
+    </section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <center><h1>Gestion des chambres</h1> </center>
+                <br> <br>
+                <h2>Liste des chambres</h2><br>
+                <input id="myInput" type="text" name="rechercher" placeholder="rechercher ..."> <br>
+                <br>
+               <div class="table-responsive table--no-card m-b-30">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                            <th>id</th>
+                                                <th>Etage </th>
+                                                <th>Etat </th>
+                                                
                                           
-                                            
-                                        </tr>
-                                    
-                                    
-                                    <tbody>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="myTable">
+                                        <?php
+                          
+                          foreach ($Listchambre as $row) {?>
+                                                <tr class="tr-shadow">
+                                                    
+                                                    <td>
+                                                    <?php echo $row['idchambre']; ?>
+                                                    </td>
+                                                    <td>
+                                                    <?php echo $row['etage']; ?>
+                                                    </td>
+                                                    
+                                                    <td>
+                                                    <?PHP echo $row['etat']; ?>
+                                                    </td>
+                                                    
+                                                   
+                                                  
                                                  
-                                        <?php      foreach ($listeBlog as $row) {?>
-                            <tr class="tr-shadow">
-                               
-                               
-                                <td>
-                                <img   src="images/<?php echo $row['chemin_img']; ?>"</img>
-                                </td>
-                                <td>
-                                <?php echo $row['titre']; ?>
-                                </td>
-                                <td>
-                                <?php echo $row['description']; ?>
-                                </td>
-                                <td ><?PHP echo $row['idM']; ?></td>
-                                <td><?PHP echo $row['date']; ?></td>
-                               
-                             
-                                                    <tr class="spacer"></tr>
+                                                    <td>
+                                                
+                                                   
+                                                    
                                                    
                                                 </tr>
                                             
@@ -125,115 +381,59 @@
                                                 <?php
                           }
                           ?>
-                                      
-                                      
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                        </tbody>
+                                    </table>
+
+
+
+                                </div>
+         
+                <!-- #END# Browser Usage -->
             </div>
-                        </div>
-
-</section>	
-<section class="ftco-section">
-  <div class="container">
-    <div class="row d-flex">
-      <div class="col-md-4 d-flex ftco-animate">
-       <div class="blog-entry justify-content-end">
-        <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
-        </a>
-        <div class="text">
-         <div class="d-flex align-items-center mb-4 topp">
-          <div class="one">
-           <span class="day">11</span>
-         </div>
-         <div class="two">
-           <span class="yr">2020</span>
-           <span class="mos">September</span>
-         </div>
-       </div>
-       <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-       <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-       <p><a href="#" class="btn btn-primary">Read more</a></p>
-     </div>
-   </div>
- </div>
-
-
-</div>
-
-</div>
-</section>
-
-
-<section class="ftco-intro ftco-section ftco-no-pt">
- <div class="container">
-  <div class="row justify-content-center">
-   <div class="col-md-12 text-center">
-    <div class="img"  style="background-image: url(images/bg_5.jpg);">
-     <div class="overlay"></div>
-     <h2>SEIN SAIN CENTRE .. SEIN SAIN TOUJOURS</h2>
-    <p>ON EST LA POUR VOUS , N'HESITEZ PLUS !</p>
-     <p class="mb-0"><a href="file:///C:/Users/asus/Documents/projet%20web/front/sein%20sain%20front/formulaire%20evenement/colorlib-regform-29/index.html" class="btn btn-primary px-4 py-3">Participer</a></p>
-   </div>
- </div>
-</div>
-</div>
-</section>
-
-<footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url(images/bg_3.jpg);">
-  <div class="container">
-    <div class="row mb-5">
-      <div class="col-md pt-5">
-        <div class="ftco-footer-widget pt-md-5 mb-4">
-          <h2 class="ftco-heading-2">A propos</h2>
-          <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
-            <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-            <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-            <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-          </ul>
         </div>
-      </div>
-      
- </div>
- <div class="row">
-  <div class="col-md-12 text-center">
+    </section>
 
-    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-       <div class="legal">
-                <div class="copyright">
-                    &copy; 2020 - 2021 <a href="javascript:void(0);">AdminLH-SEIN SAIN centre</a>.
-                </div>
-            </div>
-      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-    </div>
-  </div>
-</div>
-</footer>
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
 
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
 
+    <!-- Select Plugin Js -->
+    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
-<!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/jquery.animateNumber.min.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="js/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="js/google-map.js"></script>
-<script src="js/main.js"></script>
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="plugins/jquery-countto/jquery.countTo.js"></script>
 
+    <!-- Morris Plugin Js -->
+    <script src="plugins/raphael/raphael.min.js"></script>
+    <script src="plugins/morrisjs/morris.js"></script>
+
+    <!-- ChartJs -->
+    <script src="plugins/chartjs/Chart.bundle.js"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="plugins/flot-charts/jquery.flot.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.time.js"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Custom Js -->
+    <script src="js/admin.js"></script>
+    <script src="js/pages/index.js"></script>
+
+    <!-- Demo Js -->
+    <script src="js/demo.js"></script>
 </body>
+
 </html>

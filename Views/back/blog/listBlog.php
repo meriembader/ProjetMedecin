@@ -265,7 +265,17 @@
                     <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
                 </h2>
             </div>
-        
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
             <!-- Exportable Table -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -276,7 +286,12 @@
                             </h2>
                            
                         </div>
-                        <div class="body">
+                        <div class="body"> 
+                        <div class="button">
+                         <a class="btn btn-primary" href="generatePDF.php"><span>PDF</span></a>
+    </div>
+                            <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                                <label>Recherche:<input id="myInput"  type="text"name="rechercher" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1"></label></div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     
@@ -290,7 +305,7 @@
                                         </tr>
                                     
                                     
-                                    <tbody>
+                                    <tbody id="myTable">
                                                  
                                         <?php      foreach ($listeBlog as $row) {?>
                             <tr class="tr-shadow">
