@@ -39,7 +39,7 @@
 			}			
 
 		}
-	/*	function afficherblog(){
+		function afficherblog(){
 			$db = config::getConnexion();
 			$sql="SELECT * FROM blog ";
 			$liste=$db->query($sql);
@@ -55,7 +55,7 @@
 			$req->bindValue(':idB',$idB);
 	        $req->execute();
 	        
-		}*/
+		}
 		/*function recuperer($idB_sous_categorie){
 			$db = config::getConnexion();
 			$sql = "SELECT idB FROM blog WHERE idB_sous_categorie = $idB_sous_categorie";

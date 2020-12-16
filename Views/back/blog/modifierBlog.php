@@ -1,10 +1,15 @@
+
+ <?php
+   include_once "../../../controller/blogC.php";
+   include_once "../../../model/blog.php";
+   ?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Form Wizard | Bootstrap Based Admin Template - Material Design</title>
+    <title>Form Validation | Bootstrap Based Admin Template - Material Design</title>
     <!-- Favicon-->
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
@@ -493,88 +498,63 @@
         <div class="container-fluid">
             <div class="block-header">
                 <h2>
-                    FORM WIZARD
-                    <small>Taken from <a href="https://github.com/rstaib/jquery-steps" target="_blank">github.com/rstaib/jquery-steps</a> & <a href="https://jqueryvalidation.org/" target="_blank">jqueryvalidation.org</a></small>
+                    FORM VALIDATION
+                    <small>Taken from <a href="https://jqueryvalidation.org/" target="_blank">jqueryvalidation.org</a></small>
                 </h2>
             </div>
-         
-            
+           
+            <!-- #END# Basic Validation -->
+            <!-- Advanced Validation -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>BLOG </h2>
-                           
+                            <h2>
+                                modifier blog
+                            </h2>
+                         
                         </div>
                         <div class="body">
-                            <form action="ajoutBlogAction.php" id="wizard_with_validation" method="POST">
-                                <h3>Titre et description</h3>
-                                <fieldset>
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="titre" id="titre" required>
-                                            <label class="form-label">Titre*</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-                                            <label class="form-label">Description*</label>
-                                        </div>
-                                    </div>
-                                   
-                                </fieldset>
-
-                                <h3>medecin et Date</h3>
-                                <fieldset>
-                                  
-            <!--- -->
-            <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <input type="chemin_img" name="chemin_img" id="chemin_img"  class="form-control" required>
-                                            <label class="form-label"> Image*</label>
-                                        </div>
-                                    </div>
-                                   
-                                   
-                                    <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
-                                   
-                                </fieldset>
-
-                                <h3>Image - Finish</h3>
-                                <fieldset>
-                                <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <input type="text" name="idM" id="idM" class="form-control" required>
-                                            <label class="form-label">identifiant medecin *</label>
-                                        </div>
-                                    </div>
-                                         
-              <div >
-                <div class="input-group">
-                    <div class="form-group form-float">
-                  
-                  </div>
-                  <input type="datetime-local" name="date" id="date"  value="<?=date('Y-m-d\TH:i')?>"  class="form-control" placeholder="Left Font Awesome Icon">
-                  <label class="form-label"> 
-                      date *</label>
-                  <div>
-
-              </div>
-
-                 
-            <button class="btn btn-success" type="submit">valider</button>
-           
-           <button class="btn btn-danger" type ="reset">annuler </button>
-                                </fieldset>
-    
-
+                            <form action="modifierBlogAction.php?idB=<?=$blog['idB']?>" method="POST">
+                            <table class='table table-hover table-responsive table-bordered'>
+                            <tr>
+            <td>titre</td>
+            <td><input type='text' name='titre' value ="<?php echo $blog['titre'];?>" class='form-control' /></td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td><input type='text' name='description'  value ="<?php echo $blog['description'];?>" class='form-control' /></td>
+        </tr>
+        
+        <tr>
+            <td>Image </td>
+            <td><input type='text' name='chemin_img'  value ="<?php echo $blog['chemin_img'];?>" class='form-control' /></td>
+        </tr>
+        <tr>
+            <td>identifiant medecin</td>
+            <td><input type='text' name='idM'value ="<?php echo $blog['idM'];?>" class='form-control' /></td>
+        </tr>
+        <tr>
+            <td>date</td>
+            <td><input type='text' name='date'value ="<?php echo $blog['date'];?>" class='form-control' /></td>
+        </tr>
+        
+     
+                                        <button class="btn btn-success waves-effect" type="submit">Valider</button>
+                                <button class="btn btn-danger waves-effect" type="reset">Annuler</button>
+                                </table>
                             </form>
+                            <?php if ($msg): ?>
+                             <p><?=$msg?></p>
+                            <?php endif; ?>
+
+                                  
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- #END# Advanced Form Example With Validation -->
+            <!-- #END# Advanced Validation -->
+           
         </div>
     </section>
 
@@ -604,9 +584,11 @@
 
     <!-- Custom Js -->
     <script src="../js/admin.js"></script>
-    <script src="../js/pages/forms/form-wizard.js"></script>
+    <script src="../js/pages/forms/form-validation.js"></script>
 
     <!-- Demo Js -->
     <script src="../js/demo.js"></script>
 </body>
+
 </html>
+
