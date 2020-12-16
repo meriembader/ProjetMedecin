@@ -1,3 +1,17 @@
+
+<?php  
+     include_once "../../Controller/medecinC.php";
+     include_once "../../Model/medecin.php";
+
+  
+
+  $medecinC=new medecinC();
+  $listeMedecin=$medecinC->afficherMedecin();
+
+ 
+
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,167 +74,75 @@
  </div>
 </div>
 </section>
- 
+
+
 
 <section class="ftco-section">
-   <div class="container">
-    <div class="row">
-       <div class="col-md-4 ftco-animate">
-          <div class="project-wrap">
-             <a href="#" class="img" style="background-image: url(images/medecin-7.jpg);">
-                <span class="price">Dr Lamia Hichri</span>
-            </a>
-            <div class="text p-4">
-                <span class="days"> 8 Days Tour</span>
-                <h3><a href="#"></a></h3>
-                <p class="location"><span class="fa fa-map-marker"></span> 8030 Rue Salaheddine El Ayoubi, Grombalia</p>
-                <ul>
-                   <i style="font-size:15px" class="fa">&#xf095; 72 213 312</i> 
-               </ul>
-           </div>
-       </div>
-   </div>
-   <div class="col-md-4 ftco-animate">
-      <div class="project-wrap">
-         <a href="#" class="img" style="background-image: url(images/medecin-2.jpg);">
-            <span class="price">Dr Ayari Firas</span>
-        </a>
-        <div class="text p-4">
-            <span class="days">10 Days Tour</span>
-            <h3><a href="#"></a></h3>
-            <p class="location"><span class="fa fa-map-marker"></span> 16 Rue 4001 Cité ezzouhour 2,2052</p>
-            <ul>
-               <i style="font-size:15px" class="fa">&#xf095; 28 205 005</i>
-           </ul>
-       </div>
-   </div>
-</div>
-<div class="col-md-4 ftco-animate">
-  <div class="project-wrap">
-     <a href="#" class="img" style="background-image: url(images/medecin-3.jpg);">
-        <span class="price"> Dr Moncef Hamza</span>
-    </a>
-    <div class="text p-4">
-        <span class="days">7 Days Tour</span>
-        <h3><a href="#"></a></h3>
-        <p class="location"><span class="fa fa-map-marker"></span> Av. Taieb Mhiri, Ettadhamen, 2041</p>
-        <ul>
-         <i style="font-size:15px" class="fa">&#xf095; 71 650 999</i>  
-       </ul>
-   </div>
-</div>
-</div>
+  <div class="container">
+  <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                              Liste des medecins
+                            </h2>
+                           
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <thead>
+                                        <tr>
+                                            <th>Nom</th>
+                                            <th>Prenom</th>
+                                            <th>Age</th>
+                                            <th>departement</th>
+                                            <th> Telephone</th>
+                                        
+                                            
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                                 
+                                        <?php      foreach ($listeMedecin as $row) {?>
+                            <tr class="tr-shadow">
+                               
+                               
+                                <td>
+                                <?php echo $row['nom']; ?></
+                                </td>
+                                <td>
+                                <?php echo $row['prenom']; ?></
+                                </td>
+                                <td class="desc"><?PHP echo $row['age']."ans"; ?></td>
+                                <td><?PHP echo $row['departement']; ?></td>
+                                <td>
+                                <?PHP echo $row['telephone']; ?>
+                                </td>
+                                
+                                                    <tr class="spacer"></tr>
+                                                   
+                                                </tr>
+                                            
+                                     
+                                                <?php
+                          }
+                          ?>
+                                      
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+                       
 
-<div class="col-md-4 ftco-animate">
-  <div class="project-wrap">
-     <a href="#" class="img" style="background-image: url(images/medecin-4.jpg);">
-        <span class="price">Dr Zoubeir Chater</span>
-    </a>
-    <div class="text p-4">
-        <span class="days">8 Days Tour</span>
-        <h3><a href="#"></a></h3>
-        <p class="location"><span class="fa fa-map-marker"></span>  Imm. les Cascades - 1er étage App.A2، Rue du Lac Huron, Tunis</p>
-        <ul>
-           <i style="font-size:15px" class="fa">&#xf095; 71 655 414</i>
-       </ul>
-   </div>
-</div>
-</div>
-<div class="col-md-4 ftco-animate">
-  <div class="project-wrap">
-     <a href="#" class="img" style="background-image: url(images/medecin-5.jpg);">
-        <span class="price">Dr Hichem FEHRI</span>
-    </a>
-    <div class="text p-4">
-        <span class="days">10 Days Tour</span>
-        <h3><a href="#"></a></h3>
-        <p class="location"><span class="fa fa-map-marker"></span> 18 Rue El Koufa، Den Den 2011</p>
-        <ul>
-           <i style="font-size:15px" class="fa">&#xf095; 56 464 000</i>
-       </ul>
-   </div>
-</div>
-</div>
-<div class="col-md-4 ftco-animate">
-  <div class="project-wrap">
-     <a href="#" class="img" style="background-image: url(images/medecin-6.jpg);">
-        <span class="price"> Dr Samir Ben Rehouma</span>
-    </a>
-    <div class="text p-4">
-        <span class="days">7 Days Tour</span>
-        <h3><a href="#"></a></h3>
-        <p class="location"><span class="fa fa-map-marker"></span> Appart n°6، 162, Avenue Fethi Zouhir Résidence l'Oasis، Ariana 2083</p>
-        <ul>
-           <i style="font-size:15px" class="fa">&#xf095; 29 324 857</i>
-       </ul>
-   </div>
-</div>
-</div>
-<div class="col-md-4 ftco-animate">
-  <div class="project-wrap">
-     <a href="#" class="img" style="background-image: url(images/medecin-1.jpg);">
-        <span class="price">Dr Riadh JEBENIANI</span>
-    </a>
-    <div class="text p-4">
-        <span class="days">7 Days Tour</span>
-        <h3><a href="#"></a></h3>
-        <p class="location"><span class="fa fa-map-marker"></span> 69 Avenue Habib Bougatfa </p>
-        <ul>
-           <i style="font-size:15px" class="fa">&#xf095; 71 660 055</i>
-       </ul>
-   </div>
-</div>
-</div>
-<div class="col-md-4 ftco-animate">
-  <div class="project-wrap">
-     <a href="#" class="img" style="background-image: url(images/medecin-8.jpg);">
-        <span class="price">Dr Bouhrem Raoudha</span>
-    </a>
-    <div class="text p-4">
-        <span class="days">7 Days Tour</span>
-        <h3><a href="#"></a></h3>
-        <p class="location"><span class="fa fa-map-marker"></span> Sidi Hassine 1</p>
-        <ul>
-           <i style="font-size:15px" class="fa">&#xf095; 71 591 649</i>
-       </ul>
-   </div>
-</div>
-</div>
-<div class="col-md-4 ftco-animate">
-  <div class="project-wrap">
-     <a href="#" class="img" style="background-image: url(images/medecin-9.jpg);">
-        <span class="price">Dr Guenni halima</span>
-    </a>
-    <div class="text p-4">
-        <span class="days">7 Days Tour</span>
-        <h3><a href="#"></a></h3>
-        <p class="location"><span class="fa fa-map-marker"></span> Avenue Mongi Slim</p>
-        <ul>
-           <i style="font-size:15px" class="fa">&#xf095; 71 724 078</i>
-       </ul>
-   </div>
-</div>
-</div>
-</div>
-<div class="row mt-5">
-  <div class="col text-center">
-    <div class="block-27">
-      <ul>
-        <li><a href="#">&lt;</a></li>
-        <li class="active"><span>1</span></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-       
-        <li><a href="#">&gt;</a></li>
-    </ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-
+</section>	
 
 <section class="ftco-intro ftco-section ftco-no-pt">
  <div class="container">
