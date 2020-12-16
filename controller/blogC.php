@@ -46,6 +46,13 @@
 			return $liste;
 			
 		}
+		function afficherBlogE(){
+			$db = config::getConnexion();
+			$sql="SELECT chemin_img, idM, description, date FROM blog ";
+			$liste=$db->query($sql);
+			return $liste;
+			
+		}
 
 		
 		function supprimerblog($idB){
